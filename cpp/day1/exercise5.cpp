@@ -10,7 +10,7 @@ int main()
     cin >> b;
     area = a * b;
     cout << "Area = " << area << "\n";
-    perimeter = 2 * (a * b);
+    perimeter = 2 * (a + b);
     cout << "Perimeter = " << perimeter << "\n";
     return 0;
 }
