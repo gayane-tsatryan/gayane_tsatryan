@@ -37,7 +37,7 @@ int main()
         cout << "Can not divide by 0.\n";
     }
     else if (operatr == '+' || operatr == '-' || operatr == '*' || operatr == '/') {
-        cout << number1 << " " << operatr << " " << number2 << " = " << " " << result << "\n";
+        cout << number1 << " " << operatr << " " << number2 << " = " << " " << result << " \n ";
     }
     return 0;
 }
