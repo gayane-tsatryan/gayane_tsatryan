@@ -1,3 +1,4 @@
+
 #include <iostream>
 using namespace std;
 
@@ -16,10 +17,8 @@ int main()
             j++;
         }
 
+        cout << endl;
         j = 0;
-
-        cout << " " << endl;
-
         i--;
     }
 
@@ -33,69 +32,55 @@ int main()
         cout << " " << endl;
         i++;
     }
-    i = 0;
 
+    i = 0;
     while (i < count) {
         int j = 0;
-
-        while (j < count - i) {
-            cout << " ";
+        while (j <= count) {
+            if (j < count - i) {
+                cout << " ";
+            }
+            else {
+                cout << "*";
+            }
             j++;
         }
-        j = 0;
-        while (j <= i) {
-            cout << "*";
-            j++;
-        }
-        j = 0;
-
+        cout << endl;
         i++;
-
-        cout << " " << endl;
     }
+
     i = 0;
 
     while (i < count) {
         int j = 0;
-
-        while (j < count - i) {
-            cout << " ";
+        while (j <= count + i) {
+            if (j < count - i) {
+                cout << " ";
+            }
+            else {
+                cout << "*";
+            }
             j++;
         }
-        j = 0;
-        while (j <= i) {
-            cout << " *";
-            j++;
-        }
-        j = 0;
-
+        cout << endl;
         i++;
-
-        cout << " " << endl;
     }
-    i = 0;
 
+    i = 0;
     while (i < count) {
         int j = 0;
-
-        while (j < count - i) {
-            cout << " ";
+        while (j <= count) {
+            if (j < count - i) {
+                cout << " ";
+            }
+            else {
+                cout << " *";
+            }
             j++;
         }
-
-        j = 0;
-
-        while (j <= 2 * i) {
-            cout << "*";
-            j++;
-        }
-
-        j = 0;
+        cout << endl;
         i++;
-
-        cout << " " << endl;
     }
 
     return 0;
 }
-
