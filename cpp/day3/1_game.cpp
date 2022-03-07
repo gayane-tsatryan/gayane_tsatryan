@@ -22,7 +22,6 @@ void gameFunction(int x)
 
     } while (y != x);
 }
-
 int main()
 {
     int a;
