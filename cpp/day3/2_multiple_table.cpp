@@ -11,7 +11,6 @@ void multipleTable(int x)
         i++;
     }
 }
-
 int main()
 {
     int a;
