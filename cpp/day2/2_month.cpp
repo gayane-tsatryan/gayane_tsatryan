@@ -13,25 +13,21 @@ int main()
     case 7:
     case 8:
     case 10:
-    case 12: {
+    case 12: 
         cout << " Total number of days = 31. \n ";
         break;
-    }
-    case 2: {
+    case 2: 
         cout << " Total number of days = 28 or 29 \n ";
         break;
-    }
     case 4:
     case 6:
     case 9:
-    case 11: {
+    case 11: 
         cout << " Total number of days = 30. \n ";
         break;
-    }
-    default: {
+    default: 
         cout << "Input number from range (1 - 12): \n ";
         break;
-    }
     }
     return 0;
 }
