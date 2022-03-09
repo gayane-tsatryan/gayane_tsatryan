@@ -25,7 +25,6 @@ void star1 (int a)
     int i;
     const int count = a;
     i = count;
-
     while (i > 0) {
         int j = 0;
         while (j < i) {
@@ -42,7 +41,6 @@ void star2 (int a)
 {
     int i = 0;
     const int count = a;
-
     while (i < count) {
         int j = 0;
         while (j <= i) {
@@ -58,7 +56,6 @@ void star3 (int a)
 {
     int i = 0;
     const int count = a;
-
     while (i < count) {
         int j = 0;
         while (j <= count) {
@@ -78,7 +75,6 @@ void star4 (int a)
 {
     int i = 0;
     const int count = a;
-
     while (i < count) {
         int j = 0;
         while (j <= count + i) {
