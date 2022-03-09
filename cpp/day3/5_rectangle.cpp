@@ -1,14 +1,8 @@
 #include <iostream>
 using namespace std;
 
-void rectAreaPerimeter(float a, float b)
-{
-    float perimeter, area;
-    area = a * b;
-    cout << "Area = " << area << "\n";
-    perimeter = 2 * (a + b);
-    cout << "Perimeter = " << perimeter << "\n";
-}
+float rectArea (float, float);
+float rectPerimeter (float, float);
 
 int main()
 {
@@ -17,6 +11,20 @@ int main()
     cin >> x;
     cout << "Enter Breadth of Rectangle:  ";
     cin >> y;
-    rectAreaPerimeter(x, y);
+    cout << "Area = " << rectArea (x, y) << endl
+         << "Perimeter = " << rectPerimeter (x, y) << endl;
     return 0;
+}
+
+float rectArea (float a, float b)
+{
+    float area;
+    area = a * b;
+    return area;
+}
+float rectPerimeter (float a, float b)
+{
+    float perimeter;
+    perimeter = 2 * (a + b);
+    return perimeter;
 }
