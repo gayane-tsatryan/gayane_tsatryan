@@ -1,40 +1,9 @@
+
 #include <iostream>
 using namespace std;
 
-void calculator(float number1, float number2, char operatr)
-{
-    float result;
+void calculator(float, float, char );
 
-    switch (operatr) {
-    case '+': {
-        result = number1 + number2;
-        break;
-    }
-    case '-': {
-        result = number1 - number2;
-        break;
-    }
-    case '*': {
-        result = number1 * number2;
-        break;
-    }
-    case '/': {
-        result = number1 / number2;
-        break;
-    }
-    default: {
-        cout << "Error! Enter operator from (+,-,*,/): \n ";
-    }
-    }
-
-    if (number2 == 0 && operatr == '/') {
-        cout << "Can not divide by 0.\n";
-    }
-    else if (operatr == '+' || operatr == '-' || operatr == '*' || operatr == '/') {
-        cout << number1 << " " << operatr << " " << number2 << " = "
-             << " " << result << " \n ";
-    }
-}
 int main()
 {
     char operatr;
@@ -50,3 +19,38 @@ int main()
     return 0;
 }
 
+void calculator(float number1, float number2, char operatr)
+{
+    float result;
+
+    switch (operatr) {
+    case '+': {
+        result = number1 + number2;
+        cout << number1 << " " << operatr << " " << number2 << " = " << " " << result << " \n ";
+        break;
+    }
+    case '-': {
+        result = number1 - number2;
+        cout << number1 << " " << operatr << " " << number2 << " = " << " " << result << " \n ";
+        break;
+    }
+    case '*': {
+        result = number1 * number2;
+        cout << number1 << " " << operatr << " " << number2 << " = " << " " << result << " \n ";
+        break;
+    }
+    case '/': {
+        if (number2 == 0) {
+            cout << "Can not divide by 0.\n";
+        }
+        else {
+            result = number1 / number2;
+            cout << number1 << " " << operatr << " " << number2 << " = " << " " << result << " \n ";
+        }
+        break;
+    }
+    default: {
+        cout << "Error! Enter operator from (+,-,*,/): \n ";
+    }
+    }
+}
