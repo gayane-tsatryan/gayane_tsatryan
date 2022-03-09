@@ -1,7 +1,26 @@
 #include <iostream>
 using namespace std;
 
-void star(int a)
+void star1 (int);
+void star2 (int);
+void star3 (int);
+void star4 (int);
+void star5 (int);
+
+int main ()
+{
+    int a;
+    cout << "Enter number:  \n";
+    cin >> a;
+    star1 (a);
+    star2 (a);
+    star3 (a);
+    star4 (a);
+    star5 (a);
+
+    return 0;
+}
+void star1 (int a)
 {
     int i;
     const int count = a;
@@ -18,6 +37,11 @@ void star(int a)
         j = 0;
         i--;
     }
+}
+void star2 (int a)
+{
+    int i = 0;
+    const int count = a;
 
     while (i < count) {
         int j = 0;
@@ -29,8 +53,12 @@ void star(int a)
         cout << " " << endl;
         i++;
     }
+}
+void star3 (int a)
+{
+    int i = 0;
+    const int count = a;
 
-    i = 0;
     while (i < count) {
         int j = 0;
         while (j <= count) {
@@ -45,8 +73,11 @@ void star(int a)
         cout << endl;
         i++;
     }
-
-    i = 0;
+}
+void star4 (int a)
+{
+    int i = 0;
+    const int count = a;
 
     while (i < count) {
         int j = 0;
@@ -62,8 +93,11 @@ void star(int a)
         cout << endl;
         i++;
     }
-
-    i = 0;
+}
+void star5 (int a)
+{
+    int i = 0;
+    const int count = a;
     while (i < count) {
         int j = 0;
         while (j <= count) {
@@ -79,13 +113,3 @@ void star(int a)
         i++;
     }
 }
-
-int main()
-{
-    int a;
-    cout << "Enter number:  \n";
-    cin >> a;
-    star(a);
-    return 0;
-}
-
