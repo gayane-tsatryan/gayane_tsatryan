@@ -14,10 +14,9 @@ void minToMax(int length)
 {
     int array[length];
     int temp = 0;
+    cout << "Input : ";
     for (int i = 0; i < length; i++) {
         array[i] = rand() % 300;
-    }
-    for (int i = 0; i < length; i++) {
         cout << array[i] << ", ";
     }
 
@@ -32,7 +31,7 @@ void minToMax(int length)
             }
         }
     }
-
+    cout << "Output: ";
     for (int i = 0; i < length; i++) {
         cout << array[i] << ", ";
     }
