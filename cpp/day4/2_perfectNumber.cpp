@@ -1,20 +1,19 @@
 #include <iostream>
 using namespace std;
 
-void perfectNumber(int);
+bool isPerfect (int);
 int main()
 {
     int number;
     cout << "Enter a number: ";
     cin >> number;
-    perfectNumber(number);
+    cout << isPerfect(number)<< endl;
     return 0;
 }
 
-void perfectNumber(int number)
+bool isPerfect (int number)
 {
     int sum = 0;
-
     for (int i = 1; i < number; i++) {
         if (number % i == 0) {
             sum += i;
@@ -22,10 +21,11 @@ void perfectNumber(int number)
     }
 
     if (sum == number && number != 0) {
-        cout << number << " is perfect: \n";
+        return true;
     }
     else {
-        cout << number << " is not perfect: \n";
+        return false;
     }
 }
+
 
