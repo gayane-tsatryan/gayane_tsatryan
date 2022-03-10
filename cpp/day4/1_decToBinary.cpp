@@ -17,7 +17,7 @@ int main()
 
 void decToBinary(int number)
 {
-    int array[32];
+    bool array[32];
     int i = 0;
 
     if (number == 0) {
