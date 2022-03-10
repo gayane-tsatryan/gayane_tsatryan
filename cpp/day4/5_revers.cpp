@@ -15,10 +15,9 @@ void revers(int length)
     int array[length];
     int j = length - 1;
     int temp = 0;
+    cout << "Input: ";
     for (int i = 0; i < length; i++) {
         array[i] = rand() % 300;
-    }
-    for (int i = 0; i < length; i++) {
         cout << array[i] << ", ";
     }
 
@@ -30,6 +29,7 @@ void revers(int length)
         array[j] = temp;
         j--;
     }
+    cout << "Output: ";
     for (int i = 0; i < length; i++) {
         cout << array[i] << ", ";
     }
