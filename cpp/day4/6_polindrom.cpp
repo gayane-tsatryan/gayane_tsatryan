@@ -34,9 +34,9 @@ int length(string a)
 
 string polindrom(string a)
 {
-
-    for (int i = 0; i < length(a) / 2; i++) {
-        if (to_upper(a[i]) != to_upper(a[length(a) - 1 - i])) {
+    int l = length(a);
+    for (int i = 0; i < l / 2; i++) {
+        if (to_upper(a[i]) != to_upper(a[l - 1 - i])) {
             return "false";
         }
     }
