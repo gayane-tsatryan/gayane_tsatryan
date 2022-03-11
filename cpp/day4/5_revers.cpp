@@ -9,7 +9,7 @@ int main()
 }
 void revers()
 {    
-    const length = 10;
+    const int length = 10;
     double array[length];
     int j = length - 1;
     int temp = 0;
