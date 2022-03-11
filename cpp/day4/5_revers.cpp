@@ -1,23 +1,21 @@
 #include<iostream> 
 using namespace std;
 
-void revers(int);
+void revers();
 int main()
 {
-    int length;
-    cout << "Enter the number  for array's length:  ";
-    cin >> length;
-    revers(length);
+    revers();
     return 0;
 }
-void revers(int length)
-{
-    int array[length];
+void revers()
+{    
+    const length = 10;
+    double array[length];
     int j = length - 1;
     int temp = 0;
     cout << "Input: ";
     for (int i = 0; i < length; i++) {
-        array[i] = rand() % 300;
+        array[i] = (rand() % 300 -300)/10.0;
         cout << array[i] << ", ";
     }
 
