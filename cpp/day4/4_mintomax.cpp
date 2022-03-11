@@ -9,7 +9,7 @@ int main()
 }
 void minToMax()
 {   
-    const length = 10;
+    const int length = 10;
     double array[length];
     int temp = 0;
     cout << "Input : ";
