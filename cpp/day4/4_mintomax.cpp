@@ -1,22 +1,20 @@
 #include <iostream>
 using namespace std;
 
-void minToMax(int);
+void minToMax();
 int main()
 {
-    int length;
-    cout << "Enter the number  for array's length:  ";
-    cin >> length;
-    minToMax(length);
+    minToMax();
     return 0;
 }
-void minToMax(int length)
-{
-    int array[length];
+void minToMax()
+{   
+    const length = 10;
+    double array[length];
     int temp = 0;
     cout << "Input : ";
     for (int i = 0; i < length; i++) {
-        array[i] = rand() % 300;
+        array[i] = (rand() % 300 -300)/10.0;
         cout << array[i] << ", ";
     }
 
