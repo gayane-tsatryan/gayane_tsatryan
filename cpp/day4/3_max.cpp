@@ -1,23 +1,20 @@
 #include <iostream>
 using namespace std;
 
-void arrayMax(int);
+void arrayMax();
 int main()
 {
-    int length;
-    cout << "Enter namber for array's length:  \n";
-    cin >> length;
-    arrayMax(length);
+    arrayMax();
     return 0;
 }
 
-void arrayMax(int length)
+void arrayMax()
 {
-
-    int array[length];
-    int max;
+    const int length = 10;
+    double array[length];
+    double max;
     for (int i = 0; i < length; i++) {
-        array[i] = rand() % 300;
+        array[i] = (rand() % 300 -300)/10.0;
     }
     max = array[0];
     for (int i = 0; i < length; i++) {
