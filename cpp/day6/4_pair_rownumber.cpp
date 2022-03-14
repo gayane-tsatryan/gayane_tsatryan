@@ -18,6 +18,7 @@ void matrix()
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < column; j++) {
             array[i][j] = rand()%70;
+            cout << array[i][j];
             if (array[i][j] % 2 == 0) {
                 temp++;
             }
