@@ -1,20 +1,23 @@
 #include <iostream>
 using namespace std;
 
-void sumMatrix();
+void sumMatrix(int);
 int main()
-{
-    sumMatrix();
+{   
+    int length;
+    cout << "Input length of matrix: ";
+    cin >> length;
+    sumMatrix(length);
     return 0;
 }
-void sumMatrix()
+void sumMatrix(int a)
 {
-    const int length = 10;
-    int array[10][10];
-    int array1[10][10];
-    int array2[10][10];
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
+    const int length = a;
+    int array[length][length];
+    int array1[length][length];
+    int array2[length][length];
+    for (int i = 0; i < length; i++) {
+        for (int j = 0; j < length; j++) {
             array1[i][j] = rand() % 10 + 1;
             array2[i][j] = rand() % 10 + 1;
             array[i][j] = array1[i][j] + array2[i][j];
@@ -27,7 +30,7 @@ void sumMatrix()
         }
 
         cout << "    ";
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < length; j++) {
             if (array2[i][j] < 10) {
                 cout << "  " << array2[i][j];
             }
@@ -36,7 +39,7 @@ void sumMatrix()
             }
         }
         cout << "    ";
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < length; j++) {
             if (array[i][j] < 10) {
                 cout << "  " << array[i][j];
             }
