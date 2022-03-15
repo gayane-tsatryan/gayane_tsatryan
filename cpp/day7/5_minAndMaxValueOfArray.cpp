@@ -7,7 +7,7 @@ void maxMinValueOfArray(int length) {
   int * parray = new int[length];
   for (int i = 0; i < length; i++) {
     *(parray + i) = rand() % 10 + 1;
-    cout << * (parray + i);
+    cout << " " << * (parray + i);
   }
   cout << endl;
   min = * (parray);
@@ -15,7 +15,7 @@ void maxMinValueOfArray(int length) {
   for (int i = 0; i < length; i++) {
     if (min > * (parray + i)) {
       min = * (parray + i);
-    } else {
+    } else if (max < * (parray + i)) {
       max = * (parray + i);
     }
 
