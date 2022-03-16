@@ -1,19 +1,17 @@
 #include "atoi.h"
 #include <iostream>
 using namespace std;
-
-int main(int argc, char** argv)
+int my_atoi(char* a)
 {
-    int sum1 = 0, sum2 = 0;
-    for (int i = 0; i < argc; i++) {
-        sum1 += my_atoi(argv[i]);
+    int result = 0;
+    for (int i = a[0] == '-' ? 1 : 0; a[i] != '\0'; i++) {
+        if (a[i] >= 48 && a[i] <= 57) {
+            result = result * 10 + a[i] - '0';
+        }
+        else {
+            result = 0;
+        }
     }
-    for (int i = 0; i < argc; i++) {
-        sum2 += atoi(argv[i]);
-    }
-    cout << "my_atoi -  " << sum1 << endl << "atoi -   " << sum2 << endl;
-    return 0;
+
+    return a[0] == '-' ? -result : result;
 }
-
-
-
