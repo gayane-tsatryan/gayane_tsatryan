@@ -3,8 +3,11 @@
 using namespace std;
 
 int main() {
-        int height = 5;
-        int width = 5;
+        int height, width;
+        cout << "Enter height: ";
+        cin >> height;
+        cout << "Enter width: ";
+        cin >> width;
         int**  matrix = new int*[height];
         for (int** ptr = matrix; ptr < matrix + height; ptr++) {
                 *ptr = new int[width];
