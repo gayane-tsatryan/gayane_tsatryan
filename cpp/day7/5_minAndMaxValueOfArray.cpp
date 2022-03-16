@@ -12,11 +12,11 @@ void maxMinValueOfArray(int length) {
   cout << endl;
   min = * (parray);
   max = * (parray);
-  for (int i = 0; i < length; i++) {
-    if (min > * (parray + i)) {
-      min = * (parray + i);
-    } else if (max < * (parray + i)) {
-      max = * (parray + i);
+  for (int *ptr = parray; ptr != (parray + length); ptr++) {
+    if (min > * ptr) {
+      min = * ptr;
+    } else if (max < * ptr) {
+      max = * ptr;
     }
 
   }
