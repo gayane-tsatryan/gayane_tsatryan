@@ -5,7 +5,14 @@ using namespace std;
 int my_atoi(char* a)
 {
     int result = 0;
+    int temp = 1;
+    int i = 0;
+    
     for (int i = 0; a[i] != '\0'; i++) {
+        if (a[0] == '-')
+        {
+            temp = -1;
+        }
         if (a[i] >= 48 && a[i] <= 57) {
             result = result * 10 + a[i] - '0';
         }
@@ -14,7 +21,7 @@ int my_atoi(char* a)
         }
     }
 
-    return result;
+    return result * temp;
 }
 
 
