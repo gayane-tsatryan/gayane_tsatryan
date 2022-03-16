@@ -6,7 +6,7 @@ void maxMinValueOfArray(int length) {
   int min = 0;
   int * parray = new int[length];
   for (int i = 0; i < length; i++) {
-    *(parray + i) = rand() % 10 + 1;
+    *(parray + i) = rand() % 9 + 1;
     cout << " " << * (parray + i);
   }
   cout << endl;
