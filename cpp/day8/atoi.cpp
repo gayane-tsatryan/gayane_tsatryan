@@ -1,5 +1,6 @@
 #include "atoi.h"
 #include <iostream>
+using namespace std;
 
 int my_atoi(char* a)
 {
