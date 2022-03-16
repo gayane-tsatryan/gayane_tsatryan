@@ -7,9 +7,9 @@ int sumOfArrayElements(int length) {
   for (int i = 0; i < length; i++) {
     *(parray + i) = rand() % 10 + 1;
   }
-  for (int i = 0; i < length; i++) {
+  for (int *ptr1 = parray; ptr1 != (parray + length); ptr1++) {
 
-    sum = sum + * (parray++);
+    sum += * ptr1;
   }
   return sum;
 }
