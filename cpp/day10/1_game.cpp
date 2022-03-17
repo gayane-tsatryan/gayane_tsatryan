@@ -73,6 +73,10 @@ void game(string player)
                 }
             }
         }
+        else {
+            cout << "I can't play"<< endl;
+            break;
+        }    
     }
 }
 
