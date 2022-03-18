@@ -62,7 +62,7 @@ void game(string player)
                         stanumEnkBar = stanumEnkBar + compplayer[j];
                     }
                     int temp = CountOccurrences(repeatword, stanumEnkBar);
-                    if (temp = 0) {
+                    if (temp == 0) {
                         cout << stanumEnkBar;
                         repeatword = repeatword + stanumEnkBar;
                         break;
