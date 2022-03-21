@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 void subArr(int array[], int length);
@@ -17,17 +17,15 @@ int main()
     return 0;
 }
 
-void subArr(int array[], int n)
+void subArr(int array[], int length)
 {
     int max = 1, temp = 1, index = 0;
-
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i < length; i++) {
         if (array[i] > array[i - 1])
             temp++;
         else {
             if (max < temp) {
                 max = temp;
-
                 index = i - max;
             }
 
@@ -37,7 +35,7 @@ void subArr(int array[], int n)
 
     if (max < temp) {
         max = temp;
-        index = n - max;
+        index = length - max;
     }
 
     for (int i = index; i < max + index; i++)
