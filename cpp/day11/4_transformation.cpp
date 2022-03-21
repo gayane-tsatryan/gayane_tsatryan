@@ -9,7 +9,7 @@ int main()
     cout << "Enter the word: ";
     cin >> word;
     int size = length(word);
-    transformation(word, 0, size - 1);
+    transformation(word, 0, size);
     return 0;
 }
 void transformation(string word, int start, int length)
@@ -17,7 +17,7 @@ void transformation(string word, int start, int length)
     if (start == length)
         cout << word << endl;
     else {
-        for (int i = start; i <= length; i++) {
+        for (int i = start; i < length; i++) {
 
             swap(word[start], word[i]);
 
