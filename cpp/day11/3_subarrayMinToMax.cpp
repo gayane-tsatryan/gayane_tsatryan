@@ -11,7 +11,9 @@ int main()
     int array[length];
     for (int i = 0; i < length; i++) {
         array[i] = rand() % 100 + 1;
+        cout << array[i] << " ";
     }
+    cout << endl;
     subArr(array, length);
     cout << endl;
     return 0;
