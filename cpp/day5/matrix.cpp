@@ -1,4 +1,83 @@
+
 #include <iostream>
+using namespace std;
+
+int main()
+{
+    int i, j;
+    const int length = 10;
+    int matrix[length][length];
+    for (i = 0; i < length; i++) {
+        for (j = 0; j < length; j++) {
+            matrix[i][j] = rand() % 10 + 1;
+            if (matrix[i][j] > 9) {
+                cout << matrix[i][j] << " ";
+            }
+            else {
+                cout << matrix[i][j] << "  ";
+            }
+        }
+        cout << endl;
+    }
+    cout << endl;
+    int array[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
+    for (i = 0; i < length; i++) {
+        for (j = 0; j < length; j++) {
+            if (i > j) {
+
+                array[5] += matrix[i][j];
+            }
+            else if (i < j) {
+
+                array[4] += matrix[i][j];
+            }
+
+            int k = i + j, l = length - 1;
+
+            if (k != l && k > l) {
+                array[7] += matrix[i][j];
+            }
+            else if (k != l && k < l) {
+
+                array[6] += matrix[i][j];
+            }
+
+            int h = length - 1 - j;
+
+            if (i > j && i > h) {
+
+                array[0] += matrix[i][j];
+            }
+            else if (i > j && i < h) {
+
+                array[1] += matrix[i][j];
+            }
+            else if (i < j && i > h) {
+
+                array[2] += matrix[i][j];
+            }
+            else if (i < j && i < h) {
+
+                array[3] += matrix[i][j];
+            }
+        }
+    }
+    cout << "Top     Left : " << array[6] << endl;
+    cout << "Top     Right: " << array[4] << endl;
+    cout << "Bottom  Left : " << array[5] << endl;
+    cout << "Bottom  Right: " << array[7] << endl;
+    cout << "Bottom  Small: " << array[0] << endl;
+    cout << "Left    Small: " << array[1] << endl;
+    cout << "Right   Small: " << array[2] << endl;
+    cout << "Top     Small: " << array[3] << endl;
+
+    return 0;
+}
+
+
+
+
+/*#include <iostream>
 using namespace std;
 
 void matrix1();
@@ -111,4 +190,4 @@ void matrix1()
     }
     cout << "sum = " << sum << endl;
 }
-
+*/
