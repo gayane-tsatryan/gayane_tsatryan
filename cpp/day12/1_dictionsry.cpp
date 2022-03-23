@@ -14,61 +14,85 @@ int main()
     ofstream of;
     of.open("right.txt");
 
-    of << "hello\nname\npen\ncomputer\ncpp\nprogramming\nlanguage\nstudent\nfile\nlearn\nenglish\narmenian\nout\ninput\nopen\nclose\nyes\nfeel\ngood\nblack";
+    of << "hello\nname\npencil\ncomputers\ncpp\nprogramming\nlanguage\nstudent\nfile\nlearn\nenglish\narmenian\nout\ninput\nopen\nclose\nseptember\nfeel\ngood\nblack\nno";
     of.close();
 
     ifstream ifn;
-    ifn.open("right.txt");
+    string input = "helio i am ITC  studend and i learn C++ frogramming longuage";
+    string str = "";
 
-    int count = 0;
     string path = "myfile.txt";
     fstream fs;
     fs.open(path, fstream::in | fstream::out | fstream::app);
 
-    if (!ifn.is_open()) {
-        cout << "file is not exist.";
-    }
-    else {
-        if (!fs.is_open()) {
-            cout << "file dont open." << endl;
-        }
-        else {
-            string msg;
-            cin >> msg;
+    int count = 0;
+    string t = "";
 
-            string temp = "";
-            for (int j = 0; j < l(msg); j++) {
+    for (int i = 0; i < l(input); i++) {
+        if (input[i] != ' ') {
+            t += input[i];
+            if (i == l(input) - 1) {
 
-                if (msg[j] != ' ') {
-                    temp += msg[j];
-                }
-                else if (msg[j] == ' ') {
-                    string str;
-                    while (!ifn.eof()) {
-                        str = " ";
-                        ifn >> str;
+                ifn.open("right.txt");
+                while (!ifn.eof()) {
+                    str = " ";
+                    ifn >> str;
 
-                        if (l(temp) == l(str)) {
-                            for (int i = 0; i < l(str); i++) {
-                                if (temp[i] == str[i]) {
-                                    count++;
-                                }
+                    if (l(t) == l(str)) {
+                        for (int i = 0; i < l(t); i++) {
+                            if (str[i] == t[i]) {
+                                count++;
                             }
-                            if (count == l(str) - 1) {
-                                temp = str;
-                            }
+                        }
+                        if (count == l(str) - 1) {
+                            fs << " " << str;
                             count = 0;
+                            t = "";
+                        }
+                        else {
+                            fs << " " << t;
+                            count = 0;
+                            t = "";
                         }
                     }
                 }
-                fs << temp;
-                temp = "";
+                ifn.close();
+            }
+        }
+        else if (input[i] == ' ') {
+            if (l(t) == 1) {
+                fs << " " << t;
                 count = 0;
+                t = "";
+            }
+            else {
+
+                ifn.open("right.txt");
+                while (!ifn.eof()) {
+                    str = " ";
+                    ifn >> str;
+                    if (l(t) == l(str)) {
+                        for (int i = 0; i < l(t); i++) {
+                            if (str[i] == t[i]) {
+                                count++;
+                            }
+                        }
+                        if (count == l(str) - 1) {
+                            fs << " " << str;
+                            count = 0;
+                            t = "";
+                        }
+                        else {
+                            fs << " " << t;
+                            count = 0;
+                            t = "";
+                        }
+                    }
+                }
+                ifn.close();
             }
         }
     }
 
-    ifn.close();
-    fs.close();
     return 0;
 }
