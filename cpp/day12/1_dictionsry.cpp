@@ -14,7 +14,7 @@ int main()
     ofstream of;
     of.open("right.txt");
 
-    of << "hello name pen computer cpp programming language student file  learn english armenian out input open close yes feel good black";
+    of << "hello\nname\npen\ncomputer\ncpp\nprogramming\nlanguage\nstudent\nfile\nlearn\nenglish\narmenian\nout\ninput\nopen\nclose\nyes\nfeel\ngood\nblack";
     of.close();
 
     ifstream ifn;
