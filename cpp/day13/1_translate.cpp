@@ -29,11 +29,11 @@ void translate(string a)
     ofstream of;
     if (a == "hy-en.txt") {
         of.open(a);
-        off = "barev -> hello tun -> home mekena -> car shun -> dog katu -> cat xncor -> apple hamakargich -> computer lezu -> language";
+        off = "բարև -> hello տուն -> home մեքենա -> car շուն -> dog կատու -> cat խնձոր -> apple համակարգիչ -> computer լեզու -> language";
     }
     else {
         of.open(a);
-        off = "hello -> barev home -> tun cat -> katu dog -> shun apple -> xncor language -> lezu computer -> hamakargich car -> mekena";
+        off = "hello -> բարև home -> տուն cat -> կատու dog -> շուն apple -> խնձոր language -> լեզու computer -> համակարգիչ car -> մեքենա";
     }
     of << off;
     of.close();
