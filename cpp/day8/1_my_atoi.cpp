@@ -1,4 +1,4 @@
-#include "../lib/atoi.h"
+#include "../lib/atoi/atoi.h"
 #include <iostream>
 using namespace std;
 
