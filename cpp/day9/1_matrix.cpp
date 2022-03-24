@@ -1,4 +1,4 @@
-#include "../lib/matrix.h"
+#include "../lib/matrix/matrix.h"
 #include <iostream>
 using namespace std;
 
