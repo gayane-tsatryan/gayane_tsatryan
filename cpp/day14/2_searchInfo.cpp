@@ -143,7 +143,7 @@ int main(int argc, char* argv[])
                     cout << "\t Population - " << info1[i].population << endl;
                     cout << "\t Area - " << info1[i].area << endl;
                     cout << "\t GDP - " << info1[i].gdp << endl;
-                    cout << "\t Phone Code" << info1[i].phonecode << endl;
+                    cout << "\t Phone Code - " << info1[i].phonecode << endl;
                 }
             }
         }
@@ -156,7 +156,7 @@ int main(int argc, char* argv[])
                     cout << "\t Population - " << info1[i].population << endl;
                     cout << "\t Area - " << info1[i].area << endl;
                     cout << "\t GDP - " << info1[i].gdp << endl;
-                    cout << "\t Phone Code" << info1[i].phonecode << endl;
+                    cout << "\t Phone Code - " << info1[i].phonecode << endl;
                 }
             }
         }
