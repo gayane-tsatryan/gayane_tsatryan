@@ -36,7 +36,7 @@ int main()
         getline(cin, datainput.Note);
         toStr(datainput.dataDate, &dd, &mm, &yy);
         string dayname = "";
-        int wday1 = weekDay(dd, mm, yy);
+        int wday1 = weekDay(yy, mm, dd);
         weekD wday = (weekD)wday1;
         switch (wday) {
         case Mon: {
