@@ -4,13 +4,13 @@
 using namespace std;
 
 enum weekD {
-    Mon = 1,
+    Sun = 0,
+    Mon,
     Tue,
     Wed,
     Thu,
     Fry,
-    Sut,
-    Sun
+    Sut
 };
 
 struct data {
@@ -21,10 +21,12 @@ struct data {
 
 void toStr(string, int*, int*, int*);
 int weekDay(int, int, int);
+bool isLeap(int year);
 bool isEmpty(string);
 
 int main()
 {
+    ofstream MyF("tempfile.txt");
     int dd = 0, mm = 0, yy = 0;
     string checkinp = "";
     struct data datainput;
@@ -68,8 +70,8 @@ int main()
             break;
         }
         }
-        //adding file part   
-        string path = "./notes/" + to_string(dd) + "_" + to_string(mm) + "_" + to_string(yy) + ".txt";
+        //adding file part
+        string path = to_string(dd) + "_" + to_string(mm) + "_" + to_string(yy) + ".txt";
         fstream fs;
         fs.open(path, fstream::in | fstream::out | fstream::app);
         if (!fs.is_open()) {
@@ -84,13 +86,23 @@ int main()
                 fs << "\t\t\t\t\t" << datainput.Note << "\n";
             }
         }
-
+        checkinp = datainput.dataDate + " " + datainput.Note + "\n";
+        MyF << checkinp;
         cout << "Command: add/exit ";
         cin >> datainput.command;
         if (datainput.command == "add") {
             continue;
         }
         else if (datainput.command == "exit") {
+            string myText = "";
+            ifstream MyR("tempfile.txt");
+
+            while (getline(MyR, myText)) {
+
+                cout << myText;
+            }
+
+            MyR.close();
             return 0;
         }
         else {
@@ -100,11 +112,65 @@ int main()
     }
     return 0;
 }
-int weekDay(int y, int m, int d)
+bool isLeap(int year)
 {
-    static int t[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
-    y -= m < 3;
-    return (y + y / 4 - y / 100 + y / 400 + t[m - 1] + d) % 7;
+    if (year % 400 == 0)
+        return true;
+    if (year % 100 == 0)
+        return false;
+    if (year % 4 == 0)
+        return true;
+    return false;
+}
+int weekDay(int day, int month, int year)
+{
+    int total = 0;
+    for (int i = 1970; i < year; ++i) {
+        if (isLeap(i)) {
+            total += 366;
+        }
+        else {
+            total += 365;
+        }
+    }
+    for (int i = 1; i < month; ++i) {
+        switch (i) {
+        case 1:
+            total += 31;
+            break;
+        case 2:
+            total += (isLeap(year) ? 29 : 28);
+            break;
+        case 3:
+            total += 31;
+            break;
+        case 4:
+            total += 30;
+            break;
+        case 5:
+            total += 31;
+            break;
+        case 6:
+            total += 30;
+            break;
+        case 7:
+            total += 31;
+            break;
+        case 8:
+            total += 31;
+            break;
+        case 9:
+            total += 30;
+            break;
+        case 10:
+            total += 31;
+            break;
+        case 11:
+            total += 30;
+            break;
+        }
+    }
+    return (4 + total + day - 1) % 7;
 }
 
 void toStr(string a, int* x, int* y, int* z)
