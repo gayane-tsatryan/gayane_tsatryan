@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
     MyFile.close();
     string str = "";
     string sarr[6];
-    ifstream mfile("filename.txt");
+    ifstream mfile("countries.txt");
     int i = 0;
     int temp = 0;
     // string stemp="";
