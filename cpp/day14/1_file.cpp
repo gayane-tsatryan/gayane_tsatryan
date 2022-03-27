@@ -26,11 +26,10 @@ bool isEmpty(string);
 
 int main()
 {
-    ofstream MyF("tempfile.txt");
     int dd = 0, mm = 0, yy = 0;
     string checkinp = "";
     struct data datainput;
-    while (true) {
+  do {
         cout << "Enter day: ";
         cin >> datainput.dataDate;
         cout << "Enter Note:";
@@ -71,7 +70,7 @@ int main()
         }
         }
         //adding file part
-        string path = to_string(dd) + "_" + to_string(mm) + "_" + to_string(yy) + ".txt";
+        string path = "./notes/" +  to_string(dd) + "_" + to_string(mm) + "_" + to_string(yy) + ".txt";
         fstream fs;
         fs.open(path, fstream::in | fstream::out | fstream::app);
         if (!fs.is_open()) {
@@ -86,30 +85,19 @@ int main()
                 fs << "\t\t\t\t\t" << datainput.Note << "\n";
             }
         }
-        checkinp = datainput.dataDate + " " + datainput.Note + "\n";
-        MyF << checkinp;
+        checkinp += datainput.dataDate + " " + datainput.Note + "\n";
         cout << "Command: add/exit ";
         cin >> datainput.command;
-        if (datainput.command == "add") {
-            continue;
-        }
-        else if (datainput.command == "exit") {
-            string myText = "";
-            ifstream MyR("tempfile.txt");
-
-            while (getline(MyR, myText)) {
-
-                cout << myText;
-            }
-
-            MyR.close();
+  }while(datainput.command == "add");
+        if (datainput.command == "exit") {
+            cout << checkinp << endl;
             return 0;
         }
         else {
-            cout << "Enter Command: add/exit: ";
-            cin >> datainput.command;
+            cout << "You must input: add/exit: ";
+            return 0;
         }
-    }
+    
     return 0;
 }
 bool isLeap(int year)
