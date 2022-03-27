@@ -68,8 +68,8 @@ int main()
             break;
         }
         }
-        //adding file part
-        string path = to_string(dd) + "_" + to_string(mm) + "_" + to_string(yy) + ".txt";
+        //adding file part   
+        string path = "./notes/" + to_string(dd) + "_" + to_string(mm) + "_" + to_string(yy) + ".txt";
         fstream fs;
         fs.open(path, fstream::in | fstream::out | fstream::app);
         if (!fs.is_open()) {
