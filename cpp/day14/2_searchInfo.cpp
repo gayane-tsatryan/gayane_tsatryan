@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
     enum1 en;
     int earr[7] = { Armenia, Brazil, Chile, Russia, Georgia, Germany, France };
     struct info info1[7];
-    ofstream MyFile("filename.txt");
+    ofstream MyFile("countries.txt");
     MyFile << "Armenia Yerevan .am 3300000 29743 1260000\nBrazil Brazil .br 1300000 329743 4520000\nChile Santioago .cl 12000000 479743 230000\nRussia Moscow .ru 23000000 3209743 7000000\nGeorgia Tbilisi .ge 2300000 32743 500000\nGermany Berlin .de 7300000 23743 6580000\nFrance Pariz .fr 8900000 459743 9000000";
     MyFile.close();
     string str = "";
