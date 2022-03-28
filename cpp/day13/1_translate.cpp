@@ -7,7 +7,7 @@ void translate(string);
 int main()
 {
     string source, a;
-    cout << "choose the language\n\t 1 -> hy - en \n\t 2 -> en - hy" << endl;
+    cout << "Choose the language\n\t 1 -> hy - en \n\t 2 -> en - hy" << endl;
     cin >> source;
     if (source == "1") {
         a = "hy-en.txt";
@@ -25,18 +25,6 @@ int main()
 
 void translate(string a)
 {
-    string off = "";
-    ofstream of;
-    if (a == "hy-en.txt") {
-        of.open(a);
-        off = "բարև -> hello տուն -> home մեքենա -> car շուն -> dog կատու -> cat խնձոր -> apple համակարգիչ -> computer լեզու -> language";
-    }
-    else {
-        of.open(a);
-        off = "hello -> բարև home -> տուն cat -> կատու dog -> շուն apple -> խնձոր language -> լեզու computer -> համակարգիչ car -> մեքենա";
-    }
-    of << off;
-    of.close();
     ifstream ifn;
     string input;
     cout << "Enter the word: ";
@@ -47,7 +35,15 @@ void translate(string a)
     string path = "translater.txt";
     fstream fs;
     fs.open(path, fstream::in | fstream::out | fstream::app);
-    int len_of = l(off);
+
+    int len_of = 0;
+    ifstream ifn1(a);
+    while (!ifn1.eof()) {
+        string str = " ";
+        ifn1 >> str;
+        len_of++;
+    }
+
     string s_array[len_of];
     int il = l(input);
     string inputarray[il];
