@@ -85,11 +85,12 @@ int main()
                 fs << "\t\t\t\t\t" << datainput.Note << "\n";
             }
         }
-        checkinp += datainput.dataDate + " " + datainput.Note + "\n";
+        checkinp += dayname + " " + datainput.dataDate + " " + datainput.Note + "\n";
         cout << "Command: add/exit ";
         cin >> datainput.command;
   }while(datainput.command == "add");
         if (datainput.command == "exit") {
+            cout << "List of your notes!";
             cout << checkinp << endl;
             return 0;
         }
