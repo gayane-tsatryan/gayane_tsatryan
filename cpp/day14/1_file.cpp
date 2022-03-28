@@ -26,79 +26,120 @@ bool isEmpty(string);
 
 int main()
 {
+    bool b = false;
     int dd = 0, mm = 0, yy = 0;
     string checkinp = "";
     struct data datainput;
-  do {
+    do {
+    region1:
+        b = false;
         cout << "Enter day: ";
         cin >> datainput.dataDate;
         cout << "Enter Note:";
         cin.ignore();
-        getline(cin, datainput.Note);
         toStr(datainput.dataDate, &dd, &mm, &yy);
-        string dayname = "";
-        int wday1 = weekDay(yy, mm, dd);
-        weekD wday = (weekD)wday1;
-        switch (wday) {
-        case Mon: {
-            dayname = "Monday";
-            break;
-        }
-        case Tue: {
-            dayname = "Tuesday";
-            break;
-        }
-        case Wed: {
-            dayname = "Wednesday";
-            break;
-        }
-        case Thu: {
-            dayname = "Thusday";
-            break;
-        }
-        case Fry: {
-            dayname = "Friday";
-            break;
-        }
-        case Sut: {
-            dayname = "Suturday";
-            break;
-        }
-        case Sun: {
-            dayname = "Sunday";
-            break;
-        }
-        }
-        //adding file part
-        string path = "./notes/" +  to_string(dd) + "_" + to_string(mm) + "_" + to_string(yy) + ".txt";
-        fstream fs;
-        fs.open(path, fstream::in | fstream::out | fstream::app);
-        if (!fs.is_open()) {
-            cout << "File  closed";
-        }
-        else {
 
-            if (isEmpty(path)) {
-                fs << dayname << "\t" << datainput.dataDate << "\t" << datainput.Note << "\n";
+        if ((mm == 2 && isLeap(yy) && dd > 0 && dd <= 28) || (mm == 2 && !isLeap(yy) && dd > 0 && dd <= 29) || ((mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12) && dd > 0 && dd <= 31) || (mm == 4 || mm == 6 || mm == 9 || mm == 11) && dd > 0 && dd <= 30) {
+            getline(cin, datainput.Note);
+            string dayname = "";
+            int wday1 = weekDay(yy, mm, dd);
+            weekD wday = (weekD)wday1;
+            switch (wday) {
+            case Mon: {
+                dayname = "Monday";
+                break;
+            }
+            case Tue: {
+                dayname = "Tuesday";
+                break;
+            }
+            case Wed: {
+                dayname = "Wednesday";
+                break;
+            }
+            case Thu: {
+                dayname = "Thusday";
+                break;
+            }
+            case Fry: {
+                dayname = "Friday";
+                break;
+            }
+            case Sut: {
+                dayname = "Suturday";
+                break;
+            }
+            case Sun: {
+                dayname = "Sunday";
+                break;
+            }
+            }
+            
+            string path = "./notes/" + to_string(dd) + "_" + to_string(mm) + "_" + to_string(yy) + ".txt";
+            fstream fs;
+            fs.open(path, fstream::in | fstream::out | fstream::app);
+            if (!fs.is_open()) {
+                cout << "File  closed";
             }
             else {
-                fs << "\t\t\t\t\t" << datainput.Note << "\n";
+
+                if (isEmpty(path)) {
+                    fs << dayname << "\t" << datainput.dataDate << "\t" << datainput.Note << "\n";
+                }
+                else {
+                    fs << "\t\t\t\t\t" << datainput.Note << "\n";
+                }
             }
-        }
-        checkinp += dayname + " " + datainput.dataDate + " " + datainput.Note + "\n";
-        cout << "Command: add/exit ";
-        cin >> datainput.command;
-  }while(datainput.command == "add");
-        if (datainput.command == "exit") {
-            cout << "List of your notes!" << endl;
-            cout << checkinp << endl;
-            return 0;
+
+            string path1 = "./notes/tempfile.txt";
+            string adding = to_string(dd) + "_" + to_string(mm) + "_" + to_string(yy) + ".txt";
+            fstream fs1;
+            fs1.open(path1, fstream::in | fstream::out | fstream::app);
+            if (!fs1.is_open()) {
+                cout << "File  closed";
+            }
+            else {
+                string strf;
+                ifstream MyRF("./notes/tempfile.txt");
+                while (getline(MyRF, strf)) {
+                    if (adding == strf) {
+                        b = true;
+                    }
+                }
+
+                if (b == false) {
+                    fs1 << adding + "\n";
+                }
+            }
+
+            cout << "Command: add/exit ";
+            cin >> datainput.command;
         }
         else {
-            cout << "You must input: add/exit: ";
-            return 0;
+            cout << "Enter normal date!" << endl;
+            goto region1;
         }
-    
+    } while (datainput.command == "add");
+
+    if (datainput.command == "exit") {
+
+        string myText;
+        ifstream MyReadFile("./notes/tempfile.txt");
+        while (getline(MyReadFile, myText)) {
+            string myText1;
+            ifstream MyReadFile1(myText);
+            while (getline(MyReadFile1, myText1)) {
+                cout << myText1 << endl;
+            }
+        }
+
+        return 0;
+    }
+    else {
+        cout << "You must input: add/exit: ";
+        return 0;
+    }
+
     return 0;
 }
 bool isLeap(int year)
@@ -114,7 +155,7 @@ bool isLeap(int year)
 int weekDay(int day, int month, int year)
 {
     int total = 0;
-    for (int i = 1970; i < year; ++i) {
+    for (int i = 1900; i < year; ++i) {
         if (isLeap(i)) {
             total += 366;
         }
@@ -159,7 +200,7 @@ int weekDay(int day, int month, int year)
             break;
         }
     }
-    return (4 + total + day - 1) % 7;
+    return (4 + total + day) % 7;
 }
 
 void toStr(string a, int* x, int* y, int* z)
