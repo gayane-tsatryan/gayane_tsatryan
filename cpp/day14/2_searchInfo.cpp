@@ -61,9 +61,9 @@ int main(int argc, char* argv[])
 
     if (argv[1] == "compare") {
         string index1, index2;
-        cout << "Input   first country:";
+        cout << "Input   first country: ";
         cin >> index1;
-        cout << "Input  second country";
+        cout << "Input  second country: ";
         cin >> index2;
         int x1, x2;
         for (int i = 0; i < 8; i++) {
