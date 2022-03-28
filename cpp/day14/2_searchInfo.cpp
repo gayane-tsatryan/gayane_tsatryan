@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <cstring>
 using namespace std;
 
 struct info {
@@ -59,7 +60,7 @@ int main(int argc, char* argv[])
 
     mfile.close();
 
-    if (argv[1] == "compare") {
+    if (strcmp(argv[1], "compare") == 0 ) {
         string index1, index2;
         cout << "Input   first country: ";
         cin >> index1;
@@ -126,7 +127,7 @@ int main(int argc, char* argv[])
              << "\t|" << info1[x1].phonecode << "\t\t|" << info1[x2].phonecode << endl;
     }
 
-    else if (argv[1] == "search") {
+    else if (strcmp(argv[1], "search") == 0) {
         string input = "";
         string input1 = "";
         cout << "Input search mode (countryName / capital / domain): ";
@@ -177,3 +178,4 @@ int main(int argc, char* argv[])
             cout << "Please Input search mode (countryName / capital / domain): " << endl;
         }
     }
+  }
