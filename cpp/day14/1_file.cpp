@@ -90,7 +90,7 @@ int main()
         cin >> datainput.command;
   }while(datainput.command == "add");
         if (datainput.command == "exit") {
-            cout << "List of your notes!";
+            cout << "List of your notes!" << endl;
             cout << checkinp << endl;
             return 0;
         }
