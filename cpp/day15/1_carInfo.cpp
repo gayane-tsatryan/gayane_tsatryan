@@ -48,7 +48,7 @@ int main()
     mfile.close();
 region1:
     string choos = "";
-    cout << "Input search mode (many or singl or full): ";
+    cout << "Input search mode (many or singl or full or some): ";
     cin >> choos;
     if (choos == "full") {
 
@@ -166,6 +166,28 @@ region1:
             }
         }
     }
+
+    if (choos == "some") {
+        string inp, inp1, inp2;
+        cout << "Input 3 parameter" << endl;
+        cin >> inp;
+        cin >> inp1;
+        cin >> inp2;
+
+        for (int i = 0; i < 6; i++) {
+            if ((toUpWord(car_info[i].make) == toUpWord(inp) || toUpWord(car_info[i].driveType) == toUpWord(inp) || toUpWord(car_info[i].transmission) == toUpWord(inp) || toUpWord(car_info[i].color) == toUpWord(inp)) && (toUpWord(car_info[i].make) == toUpWord(inp1) || toUpWord(car_info[i].driveType) == toUpWord(inp1) || toUpWord(car_info[i].transmission) == toUpWord(inp1) || toUpWord(car_info[i].color) == toUpWord(inp1)) && (toUpWord(car_info[i].make) == toUpWord(inp2) || toUpWord(car_info[i].driveType) == toUpWord(inp2) || toUpWord(car_info[i].transmission) == toUpWord(inp2) || toUpWord(car_info[i].color) == toUpWord(inp2))) {
+                cout << "Make:                  " << car_info[i].make << endl;
+                cout << "DriveType:             " << car_info[i].driveType << endl;
+                cout << "MinPrice:              " << car_info[i].minPrice << endl;
+                cout << "MaxPrice:              " << car_info[i].maxPrice << endl;
+                cout << "Mileage:               " << car_info[i].mileage << endl;
+                cout << "Transmission:          " << car_info[i].transmission << endl;
+                cout << "Color:                 " << car_info[i].color << endl;
+            }
+        }
+    }
+
+    /////
     else {
         cout << "Input many or singl" << endl;
         goto region1;
