@@ -19,82 +19,118 @@ int main()
     cout << "Computer player is 1. User player is  2. " << endl;
     cin >> choose;
     bool b = false;
-
+    bool y = false;
     str = bararan[z];
     int j = 0;
+    int ti;
+    int tj;
+    int win = 5;
     if (choose == 1) {
-
         cout << "--->>" << bararan[z] << endl;
         while (true) {
             addarr[j] = str;
             j++;
         region1:
+            if (win < 0) {
+                cout << "Ups. I won you.";
+                return 0;
+            }
             cout << "Start user: ";
-            cin >> user;
-            for (int k = 0; k <= l1; k++) {
-                if (toUpWord(user) == toUpWord(addarr[k])) {
-                    cout << "This wore alredy use:" << endl;
-                    goto region1;
+            //cin >> user;
+            getline(cin, user);
+
+            for (int k = 0; k < sizeof(bararan) / sizeof(bararan[0]); k++) {
+                if (toUpWord(user) == toUpWord(bararan[k])) {
+                    ti++;
+                    y = true;
                 }
             }
 
-            temp = user[0];
-            if (to_upper(temp) == to_upper(str[l(str) - 1])) {
-                addarr[j] = user;
-                for (int i = 0; i < sizeof(bararan) / sizeof(bararan[0]); i++) {
+            if (y) {
+                y = false;
+                for (int k = 0; k <= l1; k++) {
+                    if (toUpWord(user) == toUpWord(addarr[k])) {
+                        win--;
+                        cout << "This word alredy use:" << endl;
+                        tj++;
+                        if (ti == 384 && tj == 769) {
+                            cout << "I won!" << endl;
+                            return 0;
+                        }
+                        else {
+                            ti = 0;
+                            tj = 0;
+                            goto region1;
+                        }
+                    }
+                }
 
-                    if (to_upper(user[l(user) - 1]) == to_upper(bararan[i][0])) {
+                temp = user[0];
+                if (to_upper(temp) == to_upper(str[l(str) - 1])) {
+                    addarr[j] = user;
+                    for (int i = 0; i < sizeof(bararan) / sizeof(bararan[0]); i++) {
 
-                        for (int k = 0; k <= l1; k++) {
-                            if (toUpWord(bararan[i]) == toUpWord(addarr[k])) {
-                                b = true;
+                        if (to_upper(user[l(user) - 1]) == to_upper(bararan[i][0])) {
+
+                            for (int k = 0; k <= l1; k++) {
+                                if (toUpWord(bararan[i]) == toUpWord(addarr[k])) {
+                                    b = true;
+                                    break;
+                                }
+                            }
+                            if (b == true) {
+                                b = false;
+
+                                continue;
+                            }
+                            else {
+                                cout << "--->>" << bararan[i] << endl;
+                                str = bararan[i];
+                                b = false;
+
+                                j++;
                                 break;
                             }
                         }
-                        if (b == true) {
-                            b = false;
-
-                            continue;
-                        }
-                        else {
-                            cout << "--->>" << bararan[i] << endl;
-                            str = bararan[i];
-                            b = false;
-
-                            j++;
-                            break;
-                        }
                     }
+                }
+                else {
 
-                    /*if (i == 5 && r==1 && r!=2) {
-                        cout << "Finish you are winner";
-                    }*/
+                    cout << "Word must start in " << str[l(str) - 1] << endl;
+                    win--;
+                    goto region1;
+                    return 0;
                 }
             }
             else {
-
-                cout << "Word must start in " << str[l(str) - 1] << endl;
+                win--;
+                cout << "That city dont have!" << endl;
                 goto region1;
-                return 0;
             }
         }
     }
     else if (choose == 2) {
+
         cout << "Start user:  ";
-        cin >> user;
-
+        //cin >> user;
+        cin.ignore();
+        getline(cin, user);
+        for (int k = 0; k < sizeof(bararan) / sizeof(bararan[0]); k++) {
+            if (toUpWord(user) == toUpWord(bararan[k])) {
+                y = true;
+            }
+        }
+        if (y == true) {
+            y = false;
+            goto region2;
+        }
+        else {
+            goto region3;
+        }
         while (true) {
-        //cin.ignore();
 
-        //getline(cin, user);
-
-        /*for (int k = 0; k <= l1; k++) {
-                if (toUpWord(user) == toUpWord(addarr[k])) {
-                    cout << "This wore alredy use:";
-                    goto region2;
-                }
-            }*/
         region2:
+
             addarr[j] = user;
             temp = user[l(user) - 1];
 
@@ -126,21 +162,52 @@ int main()
                     }
                 }
             }
+
         region3:
+            if (ti == 384 && tj == 769) {
+                cout << "I won!";
+                return 0;
+            }
+            if (win < 0) {
+                cout << "Ups. I won you.";
+                return 0;
+            }
             cout << "Start User: ";
-            cin >> user;
-            for (int k = 0; k <= l1; k++) {
-                if (toUpWord(user) == toUpWord(addarr[k])) {
-                    cout << "This wore alredy use:" << endl;
+            //cin >> user;
+            //cin.ignore();
+            getline(cin, user);
+            for (int k = 0; k < sizeof(bararan) / sizeof(bararan[0]); k++) {
+                if (toUpWord(user) == toUpWord(bararan[k])) {
+                    ti++;
+                    y = true;
+                }
+            }
+            if (y == true) {
+                y = false;
+
+                for (int k = 0; k <= l1; k++) {
+                    if (toUpWord(user) == toUpWord(addarr[k])) {
+                        win--;
+                        tj++;
+                        cout << "This word alredy use:" << endl;
+                        goto region3;
+                    }
+                }
+
+                ti = 0;
+                tj = 0;
+                if (to_upper(str[l(str) - 1]) == to_upper(user[0])) {
+                    goto region2;
+                }
+                else {
+                    cout << "Word must start in " << str[l(str) - 1] << endl;
+                    win--;
                     goto region3;
                 }
             }
-
-            if (to_upper(str[l(str) - 1]) == to_upper(user[0])) {
-                goto region2;
-            }
             else {
-                cout << "Word must start in " << str[l(str) - 1] << endl;
+                win--;
+                cout << "City not found!" << endl;
                 goto region3;
             }
         }
@@ -174,4 +241,3 @@ string toUpWord(string a)
     }
     return b;
 }
-
