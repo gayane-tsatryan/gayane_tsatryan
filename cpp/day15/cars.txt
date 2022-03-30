@@ -1,0 +1,12 @@
+Nissan FrontWheelDrive 2000 3000 600000 automatic red
+Niva FrontWheelDrive 1000 3000 990000 automatic white
+Volkswagen FrontWheelDrive 1200 4000 300000 automatic blue
+Brabus FrontWheelDrive 3800 4000 800000 automatic yellow
+Eraz FrontWheelDrive 9000 9800 500000 manual black
+Mersedes FrontWheelDrive 6000 7000 100000 automatic gray
+Nissan FrontWheelDrive 4000 9000 600000 automatic black
+Niva FrontWheelDrive 2000 4000 990000 automatic white
+Volkswagen FrontWheelDrive 6200 9000 300000 automatic red
+Brabus FrontWheelDrive 2800 5000 800000 automatic yellow
+Eraz FrontWheelDrive 5000 6800 500000 manual white
+Mersedes FrontWheelDrive 2000 7000 100000 automatic green
