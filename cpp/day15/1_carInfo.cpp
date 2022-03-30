@@ -67,7 +67,8 @@ int main() {
     }
   } else if (toUpWord(searchn) == toUpWord("filter")) {
 
-    region1: string choos = "";
+    region1: 
+    string choos = "";
     cout << "Input search mode ( 1 or 2 or 3 or 4 or 5 or 6 or 7): ";
     cin >> choos;
     if (choos == "7") {
@@ -113,7 +114,8 @@ int main() {
         }
       }
     } else if (choos == "1") {
-      region10: string inp;
+      region10: 
+      string inp;
       cout << "Input parameter for filter:  ";
       cin >> inp;
 
@@ -165,7 +167,8 @@ int main() {
     }
 
     else if (choos == "2") {
-      region4: string inp,
+      region4:
+      string inp,
       inp1;
       cout << "Input 2 parameter" << endl;
       cin >> inp;
@@ -263,9 +266,8 @@ int main() {
     }
 
     else if (choos == "3") {
-      region5: string inp,
-      inp1,
-      inp2;
+      region5: 
+      string inp,inp1,inp2;
       cout << "Input 3 parameter" << endl;
       cin >> inp;
       cin >> inp1;
@@ -449,15 +451,10 @@ int main() {
           z = 0;
         }
       }
-
     }
-    ////////////////////////////////////////////////////////////////////
-
     else if (choos == "4") {
-      region6: string inp,
-      inp1,
-      inp2,
-      inp3;
+      region6:
+      string inp,inp1,inp2,inp3;
       cout << "Input 4 parameter" << endl;
       cin >> inp;
       cin >> inp1;
@@ -820,11 +817,12 @@ int main() {
     }
 
     if (choos == "5") {
-      region7: string input1 = "";
-      string input3 = "";
-      string input4 = "";
-      string input5 = "";
-      string input7 = "";
+      region7:
+      string input1;
+      string input3;
+      string input4;
+      string input5;
+      string input7;
 
       cout << "Enter filter for car info." << endl;
 
@@ -869,12 +867,13 @@ int main() {
     }
 
     if (choos == "6") {
-      region8: string input1 = "";
-      string input3 = "";
-      string input4 = "";
-      string input5 = "";
-      string input6 = "";
-      string input7 = "";
+      region8: 
+      string input1;
+      string input3;
+      string input4;
+      string input5;
+      string input6;
+      string input7;
 
       cout << "Enter filter for car info." << endl;
 
