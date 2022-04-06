@@ -138,3 +138,22 @@ void addFile(string h, string rt, int rc)
     }
     fs.close();
 }
+string printStars(hotelInfo c)
+{
+    string str = "";
+    int star = c.starrate;
+    for (int i = 0; i < star; i++) {
+        str += "*";
+    }
+    return str;
+}
+int checkRoomCount(string hotelname, string roomtype, checkinUser chUser)
+{
+    int sum = 0;
+
+    if ((toUpWord(hotelname) == toUpWord(chUser.strHotelName)) && (toUpWord(roomtype) == toUpWord(chUser.strRoomType))) {
+
+        sum += chUser.roomCount;
+    }
+    return sum;
+}
