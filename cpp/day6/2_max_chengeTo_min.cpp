@@ -32,25 +32,25 @@ void matrix()
     }
 
     for (int i = 0; i < row; i++) {
-        int x = 0;
-        int y = 0;
+        int tempx = 0;
+        int tempy = 0;
         tempmin = array[i][0];
         tempmax = array[i][0];
 
         for (int j = 1; j < column; j++) {
             if (tempmin >= array[i][j]) {
                 tempmin = array[i][j];
-                x = j;
+                tempx = j;
             }
 
             else if (tempmax < array[i][j]) {
                 tempmax = array[i][j];
-                y = j;
+                tempy = j;
             }
         }
 
-        array[i][x] = tempmax;
-        array[i][y] = tempmin;
+        array[i][tempx] = tempmax;
+        array[i][tempy] = tempmin;
     }
 
     cout << endl;
