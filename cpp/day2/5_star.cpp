@@ -3,10 +3,10 @@ using namespace std;
 
 int main()
 {
-    int quantity, i = 0;
+    int starQuantity, i = 0;
     cout << "Enter count: \n";
-    cin >> quantity;
-    const int count = quantity;
+    cin >> starQuantity;
+    const int count = starQuantity;
     i = count;
 
     while (i > 0) {
