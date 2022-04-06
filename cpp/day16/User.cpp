@@ -28,16 +28,7 @@ struct checkinUser {
     int roomCount;
 };
 string printStars(hotelInfo);
-int checkRoomCount(string hotelname, string roomtype, checkinUser chUser)
-{
-    int sum = 0;
-
-    if ((toUpWord(hotelname) == toUpWord(chUser.strHotelName)) && (toUpWord(roomtype) == toUpWord(chUser.strRoomType))) {
-
-        sum += chUser.roomCount;
-    }
-    return sum;
-}
+int checkRoomCount(string , string , checkinUser );
 int main()
 {
     struct hotelInfo hif[size()];
@@ -249,3 +240,14 @@ string printStars(hotelInfo c)
     }
     return str;
 }
+int checkRoomCount(string hotelname, string roomtype, checkinUser chUser)
+{
+    int sum = 0;
+
+    if ((toUpWord(hotelname) == toUpWord(chUser.strHotelName)) && (toUpWord(roomtype) == toUpWord(chUser.strRoomType))) {
+
+        sum += chUser.roomCount;
+    }
+    return sum;
+}
+
