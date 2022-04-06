@@ -6,25 +6,25 @@ float rectPerimeter (float, float);
 
 int main()
 {
-    float x, y;
+    float Length, Breadth;
     cout << "Enter Length of Rectangle:  ";
-    cin >> x;
+    cin >> Length;
     cout << "Enter Breadth of Rectangle:  ";
-    cin >> y;
-    cout << "Area = " << rectArea (x, y) << endl
-         << "Perimeter = " << rectPerimeter (x, y) << endl;
+    cin >> Breadth;
+    cout << "Area = " << rectArea (Length, Breadth) << endl
+         << "Perimeter = " << rectPerimeter (Length, Breadth) << endl;
     return 0;
 }
 
-float rectArea (float a, float b)
+float rectArea (float Length, float Breadth)
 {
     float area;
-    area = a * b;
+    area = Length * Breadth;
     return area;
 }
-float rectPerimeter (float a, float b)
+float rectPerimeter (float Length, float Breadth)
 {
     float perimeter;
-    perimeter = 2 * (a + b);
+    perimeter = 2 * (Length + Breadth);
     return perimeter;
 }
