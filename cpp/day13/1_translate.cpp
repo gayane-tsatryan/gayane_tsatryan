@@ -2,28 +2,28 @@
 #include <fstream>
 using namespace std;
 
-int l(string);
+int length(string);
 void translate(string);
 int main()
 {
-    string source, a;
+    string source, fileName;
     cout << "Choose the language\n\t 1 -> hy - en \n\t 2 -> en - hy" << endl;
     cin >> source;
     if (source == "1") {
-        a = "hy-en.txt";
+        fileName = "hy-en.txt";
     }
     else if (source == "2") {
-        a = "en-hy.txt";
+        fileName = "en-hy.txt";
     }
     else {
         cout << "Input 1 or 2";
         return 0;
     }
-    translate(a);
+    translate(fileName);
     return 0;
 }
 
-void translate(string a)
+void translate(string fileName)
 {
     ifstream ifn;
     string input;
@@ -37,7 +37,7 @@ void translate(string a)
     fs.open(path, fstream::in | fstream::out | fstream::app);
 
     int len_of = 0;
-    ifstream ifn1(a);
+    ifstream ifn1(fileName);
     while (!ifn1.eof()) {
         string str = " ";
         ifn1 >> str;
@@ -45,7 +45,7 @@ void translate(string a)
     }
 
     string s_array[len_of];
-    int il = l(input);
+    int il = length(input);
     string inputarray[il];
     int k = 0;
     string arr = "";
@@ -66,7 +66,7 @@ void translate(string a)
     else {
         int j = 0;
         for (int z = 0; z < il; z++) {
-            ifn.open(a);
+            ifn.open(fileName);
             while (!ifn.eof()) {
                 str = " ";
                 ifn >> str;
@@ -81,13 +81,13 @@ void translate(string a)
         }
     }
 }
-int l(string a)
+int length(string text)
 {
-    int n = 0;
-    for (int i = 0; a[i] != '\0'; i++) {
-        if (a[i] == ' ') {
-            n++;
+    int j = 0;
+    for (int i = 0; text[i] != '\0'; i++) {
+        if (text[i] == ' ') {
+            j++;
         }
     }
-    return n + 1;
+    return j + 1;
 }
