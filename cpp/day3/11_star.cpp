@@ -20,10 +20,10 @@ int main ()
 
     return 0;
 }
-void star1 (int a)
+void star1 (int starQuantity)
 {
     int i;
-    const int count = a;
+    const int count = starQuantity;
     i = count;
     while (i > 0) {
         int j = 0;
@@ -37,10 +37,10 @@ void star1 (int a)
         i--;
     }
 }
-void star2 (int a)
+void star2 (int starQuantity)
 {
     int i = 0;
-    const int count = a;
+    const int count = starQuantity;
     while (i < count) {
         int j = 0;
         while (j <= i) {
@@ -52,10 +52,10 @@ void star2 (int a)
         i++;
     }
 }
-void star3 (int a)
+void star3 (int starQuantity)
 {
     int i = 0;
-    const int count = a;
+    const int count = starQuantity;
     while (i < count) {
         int j = 0;
         while (j <= count) {
@@ -71,10 +71,10 @@ void star3 (int a)
         i++;
     }
 }
-void star4 (int a)
+void star4 (int starQuantity)
 {
     int i = 0;
-    const int count = a;
+    const int count = starQuantity;
     while (i < count) {
         int j = 0;
         while (j <= count + i) {
@@ -90,10 +90,10 @@ void star4 (int a)
         i++;
     }
 }
-void star5 (int a)
+void star5 (int starQuantity)
 {
     int i = 0;
-    const int count = a;
+    const int count = starQuantity;
     while (i < count) {
         int j = 0;
         while (j <= count) {
