@@ -7,3 +7,5 @@ int size();
 bool isBig(string, string);
 void toStr(string a, int*, int*, int*);
 void addFile(string , string , int );
+string printStars(hotelInfo);
+int checkRoomCount(string , string , checkinUser );
