@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
+#include "../lib/book/book.h"
 using namespace std;
 
-int calcStars(bool, bool, bool, bool, bool, bool, bool);
 int main()
 {
     string hotelname;
@@ -59,26 +59,4 @@ int main()
     fs.open(path, fstream::in | fstream::out | fstream::app);
     fs << text << endl;
     return 0;
-}
-int calcStars(bool a1, bool a2, bool a3, bool a4, bool a5, bool a6, bool a7)
-{
-    bool arr[] = { a1, a2, a3, a4, a5, a6, a7 };
-    int sum = 0;
-    int elem = 7;
-
-    int stars;
-    for (int i = 0; i < elem; i++) {
-        sum += arr[i];
-    }
-
-    if (elem - sum == 0 || elem - sum == 1) {
-        stars = 5;
-    }
-    else if (elem - sum == 2 || elem - sum == 3) {
-        stars = 4;
-    }
-    else {
-        stars = 3;
-    }
-    return stars;
 }
