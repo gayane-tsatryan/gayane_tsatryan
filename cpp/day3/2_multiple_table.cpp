@@ -1,26 +1,21 @@
 #include <iostream>
 using namespace std;
 
-void multipleTable(int x)
+void multipleTable(int multiplNumber)
 {
-    int b;
+    int result;
     int i = 0;
     while (i <= 10) {
-        b = x * i;
-        cout << x << " * " << i << " = " << b << "\n";
+        result = multiplNumber * i;
+        cout << multiplNumber << " * " << i << " = " << result << "\n";
         i++;
     }
 }
 int main()
 {
-    int a;
+    int multiplNumber;
     cout << "Enter the number for multiplication table: ";
-    cin >> a;
-    if (a >= 1 && a <= 10) {
-        multipleTable(a);
-    }
-    else {
-        cout << "Error! Enter number from range (1-10): \n";
-    }
+    cin >> multiplNumber;
+    multipleTable(multiplNumber);
     return 0;
 }
