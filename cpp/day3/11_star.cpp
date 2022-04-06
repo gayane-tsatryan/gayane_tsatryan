@@ -9,14 +9,14 @@ void star5 (int);
 
 int main ()
 {
-    int a;
+    int starQuantity;
     cout << "Enter number:  \n";
-    cin >> a;
-    star1 (a);
-    star2 (a);
-    star3 (a);
-    star4 (a);
-    star5 (a);
+    cin >> starQuantity;
+    star1 (starQuantity);
+    star2 (starQuantity);
+    star3 (starQuantity);
+    star4 (starQuantity);
+    star5 (starQuantity);
 
     return 0;
 }
