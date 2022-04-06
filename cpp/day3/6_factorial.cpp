@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
 
-int factorial(int x)
+int factorial(int number)
 {
-    if (x > 1)
-        return x * factorial(x - 1);
+    if (number > 1)
+        return number * factorial(number - 1);
     else
         return 1;
 }
 
 int main()
 {
-    int a;
+    int number;
     cout << "Enter number:  \n";
-    cin >> a;
-    cout << a << "! = " << factorial(a) << endl;
+    cin >> number;
+    cout << number << "! = " << factorial(number) << endl;
     return 0;
 }
 
