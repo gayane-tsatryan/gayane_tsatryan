@@ -7,36 +7,36 @@ int length(string);
 int main()
 
 {
-    string a;
+    string word;
     cout << "Input : ";
-    cin >> a;
+    cin >> word;
 
-    cout << "Output: " << polindrom(a) << endl;
+    cout << "Output: " << polindrom(word) << endl;
     return 0;
 }
 
-char to_upper(char a)
+char to_upper(char letter)
 {
-    if (a >= 'a' && a <= 'z') {
-        return a - 32;
+    if (letter >= 'a' && letter <= 'z') {
+        return letter - 32;
     }
-    return a;
+    return letter;
 }
 
-int length(string a)
+int length(string word)
 {
-    int n = 0;
-    for (int j = 0; a[j] != '\0'; j++) {
-        n++;
+    int i = 0;
+    for (int j = 0; word[j] != '\0'; j++) {
+        i++;
     }
-    return n;
+    return i;
 }
 
-string polindrom(string a)
+string polindrom(string word)
 {
-    int l = length(a);
-    for (int i = 0; i < l / 2; i++) {
-        if (to_upper(a[i]) != to_upper(a[l - 1 - i])) {
+    int lengthWord = length(word);
+    for (int i = 0; i < lengthWord / 2; i++) {
+        if (to_upper(word[i]) != to_upper(word[lengthWord - 1 - i])) {
             return "false";
         }
     }
