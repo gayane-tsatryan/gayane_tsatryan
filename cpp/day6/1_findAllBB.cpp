@@ -13,23 +13,23 @@ int main()
     return 0;
 }
 
-string subString(string a, int index, int length)
+string subString(string text, int index, int length)
 {
-    string b = "";
+    string tempText = "";
     for (int j = 0; j < length; j++) {
-        b = b + a[index + j];
+        tempText = tempText + text[index + j];
     }
 
-    return b;
+    return tempText;
 }
 
-int length(string a)
+int length(string text)
 {
-    int l = 0;
-    for (int i = 0; a[i] != '\0'; i++) {
-        l++;
+    int j = 0;
+    for (int i = 0; text[i] != '\0'; i++) {
+        j++;
     }
-    return l;
+    return j;
 }
 int printCountString(string string1, string string2)
 {
