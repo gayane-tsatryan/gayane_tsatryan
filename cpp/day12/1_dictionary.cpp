@@ -1,13 +1,13 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-int l(string a)
+int length(string text)
 {
-    int n = 0;
-    for (int i = 0; a[i] != '\0'; i++) {
-        n++;
+    int j = 0;
+    for (int i = 0; text[i] != '\0'; i++) {
+        j++;
     }
-    return n;
+    return j;
 }
 int main()
 {
@@ -26,33 +26,33 @@ int main()
     fs.open(path, fstream::in | fstream::out | fstream::app);
 
     int count = 0;
-    string t = "";
+    string tempText = "";
 
-    for (int i = 0; i < l(input); i++) {
+    for (int i = 0; i < length(input); i++) {
         if (input[i] != ' ') {
-            t += input[i];
-            if (i == l(input) - 1) {
+            tempText += input[i];
+            if (i == length(input) - 1) {
 
                 ifn.open("right.txt");
                 while (!ifn.eof()) {
                     str = " ";
                     ifn >> str;
 
-                    if (l(t) == l(str)) {
-                        for (int i = 0; i < l(t); i++) {
-                            if (str[i] == t[i]) {
+                    if (length(tempText) == length(str)) {
+                        for (int i = 0; i < length(tempText); i++) {
+                            if (str[i] == tempText[i]) {
                                 count++;
                             }
                         }
-                        if (count == l(str) - 1) {
+                        if (count == length(str) - 1) {
                             fs << " " << str;
                             count = 0;
-                            t = "";
+                            tempText = "";
                         }
                         else {
-                            fs << " " << t;
+                            fs << " " << tempText;
                             count = 0;
-                            t = "";
+                            tempText = "";
                         }
                     }
                 }
@@ -60,10 +60,10 @@ int main()
             }
         }
         else if (input[i] == ' ') {
-            if (l(t) == 1) {
-                fs << " " << t;
+            if (length(tempText) == 1) {
+                fs << " " << tempText;
                 count = 0;
-                t = "";
+                tempText = "";
             }
             else {
 
@@ -71,21 +71,21 @@ int main()
                 while (!ifn.eof()) {
                     str = " ";
                     ifn >> str;
-                    if (l(t) == l(str)) {
-                        for (int i = 0; i < l(t); i++) {
-                            if (str[i] == t[i]) {
+                    if (length(tempText) == length(str)) {
+                        for (int i = 0; i < length(tempText); i++) {
+                            if (str[i] == tempText[i]) {
                                 count++;
                             }
                         }
-                        if (count == l(str) - 1) {
+                        if (count == length(str) - 1) {
                             fs << " " << str;
                             count = 0;
-                            t = "";
+                            tempText = "";
                         }
                         else {
-                            fs << " " << t;
+                            fs << " " << tempText;
                             count = 0;
-                            t = "";
+                            tempText = "";
                         }
                     }
                 }
