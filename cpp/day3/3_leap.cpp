@@ -1,25 +1,25 @@
 #include <iostream>
 using namespace std;
 
-void leapFunction(int y)
+void leapFunction(int year)
 {
     int i = 0;
 
     while (i < 20) {
 
-        if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0) {
-            cout << y << endl;
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            cout << year << endl;
             i++;
         }
-        y++;
+        year++;
     }
 }
 int main()
 {
-    int a;
+    int year;
     cout << "Enter the year: \n";
-    cin >> a;
-    leapFunction(a);
+    cin >> year;
+    leapFunction(year);
 
     return 0;
 }
