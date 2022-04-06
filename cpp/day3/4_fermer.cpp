@@ -1,26 +1,25 @@
 #include <iostream>
 using namespace std;
 
-void sumFunction(int a, int b, int c)
+void sumFunction(int chikens, int cows, int pigs)
 {
-    cout << "chikens = " << a << "\n"
-         << "cows = " << b << "\n"
-         << "pigs = " << c << "\n"
-         << "Result = " << a * 2 + b * 4 + c * 4 << "\n";
+    cout << "chikens = " << chikens << "\n"
+         << "cows = " << cows << "\n"
+         << "pigs = " << pigs << "\n"
+         << "Result = " << chikens * 2 + cows * 4 + pigs * 4 << "\n";
 }
 int main()
 {
-    int x;
-    int y;
-    int z;
-    int total;
+    int chikens;
+    int cows;
+    int pigs;
     cout << "How many chikens do you have?  \n";
-    cin >> x;
+    cin >> chikens;
     cout << "How many cows do you have?  \n";
-    cin >> y;
+    cin >> cows;
     cout << "How many pigs  do you have?  \n";
-    cin >> z;
-    sumFunction(x, y, z);
+    cin >> pigs;
+    sumFunction(chikens, cows, pigs);
     return 0;
 }
 
