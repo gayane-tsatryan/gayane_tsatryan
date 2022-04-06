@@ -1,36 +1,47 @@
-
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <sstream>
 #include <algorithm>
-using namespace  std;
+#include "../lib/book/book.h"
+using namespace std;
 
-struct hotelInfo
-{
-	string hotelname;
-	int starrate;
-	int singlRoom;
-	int twinRoom;
-	int trplRoom;
-	int vipRoom;
-	bool spa;
-	bool souna;
-	bool gameRoom;
-	bool fitnes;
-	bool kidClub;
-	bool lobiBar;
-	bool laundry;
+struct hotelInfo {
+    string hotelname;
+    int starrate;
+    int singlRoom;
+    int twinRoom;
+    int trplRoom;
+    int vipRoom;
+    bool spa;
+    bool souna;
+    bool gameRoom;
+    bool fitnes;
+    bool kidClub;
+    bool lobiBar;
+    bool laundry;
+    int SGLprice;
 };
-bool stob(string);
-int size();
+struct checkinUser {
+    string strHotelName;
+    string strRoomType;
+    int roomCount;
+};
 string printStars(hotelInfo);
-bool isBig(string, string);
-void toStr(string a, int*, int*, int*);
+int checkRoomCount(string hotelname, string roomtype, checkinUser chUser)
+{
+    int sum = 0;
+
+    if ((toUpWord(hotelname) == toUpWord(chUser.strHotelName)) && (toUpWord(roomtype) == toUpWord(chUser.strRoomType))) {
+
+        sum += chUser.roomCount;
+    }
+    return sum;
+}
 int main()
 {
-    struct hotelInfo hif[4];
-    string sarr[13];
+    struct hotelInfo hif[size()];
+    string sarr[14];
     ifstream ifs("info.txt");
     string str = "";
     int index1 = 0, index2 = 0;
@@ -38,7 +49,7 @@ int main()
         ifs >> str;
         sarr[index1] = str;
         index1++;
-        if (index1 == 13) {
+        if (index1 == 14) {
             hif[index2].hotelname = sarr[0];
             hif[index2].starrate = stoi(sarr[1]);
             hif[index2].singlRoom = stoi(sarr[2]);
@@ -52,51 +63,45 @@ int main()
             hif[index2].kidClub = stob(sarr[10]);
             hif[index2].lobiBar = stob(sarr[11]);
             hif[index2].laundry = stob(sarr[12]);
+            hif[index2].SGLprice = stoi(sarr[13]);
             index1 = 0;
             index2++;
         }
     }
     ifs.close();
-    string choose = "";
-user:
-    cout << "Iput your mod: ";
-    getline(cin, choose);
-    if (choose == "user") {
-        cout << "             Wellcome          " << endl;
-        cout << "|===========Hotel List==========|" << endl;
-        for (int i = 0; i < size(); i++) {
-            cout << "\t" << hif[i].hotelname << " Hotel\t|  " << printStars(hif[i]) << endl;
-            cout << "|-------------------------------|" << endl;
-        }
+    cout << "             Wellcome          " << endl;
+    cout << "|===========Hotel List==========|" << endl;
+    for (int i = 0; i < size(); i++) {
+        cout << "\t" << hif[i].hotelname << " Hotel\t|  " << printStars(hif[i]) << endl;
+        cout << "|-------------------------------|" << endl;
     }
-    else {
-        cout << "Mode not found" << endl;
-        goto user;
-    }
+
     string input_hotel;
 choose:
+    double temp = 1.0;
     cout << "\n"
          << "Input your favorite hotel name: ";
     cin >> input_hotel;
     cout << endl;
     for (int i = 0; i < size(); i++) {
-        if (hif[i].hotelname == input_hotel) {
+        if (toUpWord(hif[i].hotelname) == toUpWord(input_hotel)) {
             cout << "\t" << hif[i].hotelname << " Hotel " << printStars(hif[i]) << endl;
             cout << "_______________________________" << endl;
             if (hif[i].singlRoom > 0) {
-                cout << "   SGL  | " << hif[i].singlRoom << " | 45000 AMD" << endl;
+                cout << "   SGL  | " << hif[i].singlRoom << "  | " << hif[i].SGLprice << " AMD" << endl;
                 cout << "_______________________________" << endl;
             }
+
             if (hif[i].twinRoom > 0) {
-                cout << "   TWN  | " << hif[i].twinRoom << "| 65000 AMD" << endl;
+                cout << "   TWN  | " << hif[i].twinRoom << " | " << hif[i].SGLprice * 1.5 << " AMD" << endl;
                 cout << "_______________________________" << endl;
             }
             if (hif[i].trplRoom > 0) {
-                cout << "   TRPL | " << hif[i].trplRoom << " | 80000 AMD" << endl;
+                cout << "   TRPL | " << hif[i].trplRoom << "  | " << hif[i].SGLprice * 2.5 << " AMD" << endl;
                 cout << "_______________________________" << endl;
             }
             if (hif[i].vipRoom > 0) {
-                cout << "   VIP  | " << hif[i].vipRoom << " | 90000 AMD" << endl;
+                cout << "   VIP  | " << hif[i].vipRoom << "  | " << hif[i].SGLprice * 3 << " AMD" << endl;
                 cout << "_______________________________" << endl;
             }
             cout << endl;
@@ -105,8 +110,124 @@ choose:
             cout << "Do You want to book a room?(yes/no) ";
             cin >> ans;
             if (ans == "yes") {
-                //to be continued
-                cout << "Yess";
+
+            regionROOM:
+                int count = 0;
+                string troom = "";
+                int croom = 0;
+                bool a = false;
+
+                cout << "Input your room type(SGL/TWN/TRPL/VIP): ";
+                cin.ignore();
+                cin >> troom;
+
+                int sumfinish = 0;
+                struct checkinUser chechin_User_arr[size("userFile.txt")];
+                string checkinRooms[3];
+                string ltr = "";
+                ifstream ifsf("userFile.txt");
+                int x = 0, y = 0;
+                while (!ifsf.eof()) {
+                    ifsf >> ltr;
+                    checkinRooms[x] = ltr;
+                    x++;
+                    if (x == 3) {
+                        chechin_User_arr[y].strHotelName = checkinRooms[0];
+                        chechin_User_arr[y].strRoomType = checkinRooms[2];
+                        chechin_User_arr[y].roomCount = stoi(checkinRooms[1]);
+                        y++;
+                        x = 0;
+                    }
+                }
+
+                if (toUpWord(troom) == "SGL") {
+
+                    for (int j = 0; j < size("userFile.txt"); j++) {
+                        sumfinish += checkRoomCount(hif[i].hotelname, troom, chechin_User_arr[j]);
+                    }
+                    count = hif[i].singlRoom - sumfinish;
+                    cout << "\n|Check-in  rooms count\t|\tFree rooms|\n__________________________________________|\n|\t" << sumfinish << "\t\t|\t" << count << "\t|\n" << endl;
+
+                    cout << "How many rooms you want book: ";
+                    cin >> croom;
+                    if (count >= 0 && count >= croom) {
+                        addFile(input_hotel, troom, croom);
+                    }
+                    else {
+
+                        cout << "Sorry!!! We have " << count << " " << toUpWord(troom) << " rooms are free:\n";
+                    }
+
+                    if (goToRegion()) {
+                        goto regionROOM;
+                    }
+                }
+                else if (toUpWord(troom) == "TWN") {
+                    for (int j = 0; j < size("userFile.txt"); j++) {
+                        sumfinish += checkRoomCount(hif[i].hotelname, troom, chechin_User_arr[j]);
+                    }
+                    count = hif[i].twinRoom - sumfinish;
+                    cout << "\n|Check-in  rooms count\t|\tFree rooms|\n__________________________________________|\n|\t" << sumfinish << "\t\t|\t" << count << "\t|\n" << endl;
+
+                    cout << "How many rooms you want book: ";
+                    cin >> croom;
+                    if (count >= 0 && count >= croom) {
+                        addFile(input_hotel, troom, croom);
+                    }
+                    else {
+
+                        cout << "Sorry!!! We have " << count << " " << toUpWord(troom) << " rooms are free:\n";
+                    }
+
+                    if (goToRegion()) {
+                        goto regionROOM;
+                    }
+                }
+                else if (toUpWord(troom) == "TRPL") {
+                    for (int j = 0; j < size("userFile.txt"); j++) {
+                        sumfinish += checkRoomCount(hif[i].hotelname, troom, chechin_User_arr[j]);
+                    }
+                    count = hif[i].trplRoom - sumfinish;
+                    cout << "\n|Check-in  rooms count\t|\tFree rooms|\n__________________________________________|\n|\t" << sumfinish << "\t\t|\t" << count << "\t|\n" << endl;
+
+                    cout << "How many rooms you want book: ";
+                    cin >> croom;
+                    if (count >= 0 && count >= croom) {
+                        addFile(input_hotel, troom, croom);
+                    }
+                    else {
+
+                        cout << "Sorry!!! We have " << count << " " << toUpWord(troom) << " rooms are free:\n";
+                    }
+
+                    if (goToRegion()) {
+                        goto regionROOM;
+                    }
+                }
+                else if (toUpWord(troom) == "VIP") {
+                    for (int j = 0; j < size("userFile.txt"); j++) {
+                        sumfinish += checkRoomCount(hif[i].hotelname, troom, chechin_User_arr[j]);
+                    }
+                    count = hif[i].vipRoom - sumfinish;
+                    cout << "\n|Check-in  rooms count\t|\tFree rooms|\n__________________________________________|\n|\t" << sumfinish << "\t\t|\t" << count << "\t|\n" << endl;
+
+                    cout << "How many rooms you want book: ";
+                    cin >> croom;
+                    if (count >= 0 && count >= croom) {
+                        addFile(input_hotel, troom, croom);
+                    }
+                    else {
+
+                        cout << "Sorry!!! We have " << count << " " << toUpWord(troom) << " rooms are free:\n";
+                    }
+
+                    if (goToRegion()) {
+                        goto regionROOM;
+                    }
+                }
+                else {
+                    goto regionROOM;
+                }
             }
             else if (ans == "no") {
                 goto choose;
@@ -114,9 +235,6 @@ choose:
             else {
                 goto tryA;
             }
-        }
-        else {
-            goto choose;
         }
     }
 
@@ -131,86 +249,3 @@ string printStars(hotelInfo c)
     }
     return str;
 }
-int size()
-{
-    int count = 0;
-    string line;
-    ifstream ifs("info.txt");
-    while (getline(ifs, line)) {
-        ++count;
-    }
-    ifs.close();
-    return count;
-}
-bool stob(string str)
-{
-    transform(str.begin(), str.end(), str.begin(), ::tolower);
-    istringstream is(str);
-    bool b;
-    is >> std::boolalpha >> b;
-    return b;
-}
-void toStr(string a, int* x, int* y, int* z)
-{
-    string d = "";
-    string dd = "";
-    string mm = "";
-    string yy = "";
-    int c = 0;
-    bool b = false;
-    for (int i = 0; a[i] != '\0'; i++) {
-        if (a[i] != '/') {
-            d += a[i];
-            c++;
-        }
-        else if ((c == 1 || c == 2) && a[i] == '/' && b == false) {
-
-            if (d[0] == '0') {
-                dd = d[1];
-                d = "";
-                b = true;
-            }
-            else {
-                dd = d;
-                d = "";
-                b = true;
-            }
-        }
-        else if ((c >= 2 && c <= 4) && a[i] == '/' && b == true) {
-            if (d[0] == '0') {
-                mm = d[1];
-                d = "";
-            }
-            else {
-                mm = d;
-                d = "";
-            }
-        }
-    }
-    yy = d;
-    *x = stoi(dd);
-    *y = stoi(mm);
-    *z = stoi(yy);
-}
-
-bool isBig(string date1, string date2)
-{
-
-    int d = 0;
-    int m = 0;
-    int y = 0;
-    int dd = 0;
-    int mm = 0;
-    int yy = 0;
-    toStr(date1, &d, &m, &y);
-    toStr(date2, &dd, &mm, &yy);
-
-    if (y > yy || (y == yy && m > mm) || (y == yy && m == mm && d >= dd)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-
