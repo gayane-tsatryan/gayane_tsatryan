@@ -2,17 +2,17 @@
 #include <cstdlib>
 using namespace std;
 
-void gameFunction(int x)
+void gameFunction(int number1)
 {
-    int y;
+    int number2;
     cout << "Enter number: \n";
     do {
-        int y;
-        cin >> y;
-        if (y < x) {
+        int number2;
+        cin >> number2;
+        if (number2 < number1) {
             cout << "Enter the larg number: \n";
         }
-        else if (y > x) {
+        else if (number2 > number1) {
             cout << "Enter the small number: \n";
         }
         else {
@@ -20,16 +20,16 @@ void gameFunction(int x)
             break;
         }
 
-    } while (y != x);
+    } while (number2 != number1);
 }
 int main()
 {
-    int a;
+    int number;
     cout << "Enter number: \n";
-    cin >> a;
+    cin >> number;
     system("clear");
 
-    gameFunction(a);
+    gameFunction(number);
 
     return 0;
 }
