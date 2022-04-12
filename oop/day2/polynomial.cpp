@@ -7,6 +7,8 @@ public:
     void get_date();
     void Add();
     void SubSract();
+    void Multiplay();
+    void MultiplayByNumber();
     void display();
 };
 void polynomial::get_date()
@@ -51,6 +53,54 @@ void polynomial::Add()
             else {
                 c[i] = a[i];
             }
+        }
+    }
+}
+void polynomial::Multiplay()
+{
+    if (m == n) {
+        for (i = 0; i <= n; i++) {
+            c[i] = a[i] * b[i];
+        }
+    }
+    else if (m > n) {
+        for (i = 0; i <= m; i++) {
+            if (i <= n) {
+                c[i] = a[i] * b[i];
+            }
+            else {
+                c[i] = b[i];
+            }
+        }
+    }
+    else if (n > m) {
+        for (i = 0; i <= n; i++) {
+            if (i <= m) {
+
+                c[i] = a[i] * b[i];
+            }
+            else {
+                c[i] = a[i];
+            }
+        }
+    }
+}
+
+void polynomial::MultiplayByNumber()
+{
+    int number, input;
+    cout << "Enter number for multiply: ";
+    cin >> number;
+    cout << "If multiply first polynomial input 1 else some button: " << endl;
+    cin >> input;
+    if (input == 1) {
+        for (i = 0; i <= n; i++) {
+            c[i] = number * a[i];
+        }
+    }
+    else {
+        for (i = 0; i <= m; i++) {
+            c[i] = number * b[i];
         }
     }
 }
@@ -103,10 +153,20 @@ int main()
     polynomial p;
     p.get_date();
     p.Add();
-    cout << "Result" << endl;
+    cout << endl;
+    cout << "Result ";
     p.display();
+    cout << endl;
     p.SubSract();
-    cout << "Result" << endl;
+    cout << "Result ";
+    p.display();
+    cout << endl;
+    p.Multiplay();
+    cout << "Result ";
+    p.display();
+    cout << endl;
+    p.MultiplayByNumber();
+    cout << "Result ";
     p.display();
     return 0;
 }
