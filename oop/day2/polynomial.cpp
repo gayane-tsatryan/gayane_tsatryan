@@ -1,17 +1,5 @@
-#include <iostream>
-using namespace std;
-class polynomial {
-    int a[' '], b[' '], c[' '], i, j, m, n, x;
-
-public:
-    void get_date();
-    void Add();
-    void SubSract();
-    void Multiplay();
-    void MultiplayByNumber();
-    void display();
-};
-void polynomial::get_date()
+#include "plynomial.h"
+polynomial::get_date()
 {
     cout << "Enter the first polynomial ";
     cin >> n;
@@ -27,7 +15,7 @@ void polynomial::get_date()
     }
 }
 
-void polynomial::Add()
+polynomial::Add()
 {
     if (m == n) {
         for (i = 0; i <= n; i++) {
@@ -56,7 +44,7 @@ void polynomial::Add()
         }
     }
 }
-void polynomial::Multiplay()
+polynomial::Multiplay()
 {
     if (m == n) {
         for (i = 0; i <= n; i++) {
@@ -85,8 +73,7 @@ void polynomial::Multiplay()
         }
     }
 }
-
-void polynomial::MultiplayByNumber()
+polynomial::MultiplayByNumber()
 {
     int number, input;
     cout << "Enter number for multiply: ";
@@ -104,7 +91,7 @@ void polynomial::MultiplayByNumber()
         }
     }
 }
-void polynomial::SubSract()
+polynomial::SubSract()
 {
     if (m == n) {
         for (i = 0; i <= n; i++) {
@@ -135,8 +122,7 @@ void polynomial::SubSract()
         }
     }
 }
-
-void polynomial::display()
+polynomial::display()
 {
     x = i - 1;
     for (j = i - 1; j >= 0; j--) {
@@ -147,26 +133,4 @@ void polynomial::display()
         cout << c[j] << "x^" << x << "+";
         x--;
     }
-}
-int main()
-{
-    polynomial p;
-    p.get_date();
-    p.Add();
-    cout << endl;
-    cout << "Result ";
-    p.display();
-    cout << endl;
-    p.SubSract();
-    cout << "Result ";
-    p.display();
-    cout << endl;
-    p.Multiplay();
-    cout << "Result ";
-    p.display();
-    cout << endl;
-    p.MultiplayByNumber();
-    cout << "Result ";
-    p.display();
-    return 0;
 }
