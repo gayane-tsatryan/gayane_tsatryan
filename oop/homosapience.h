@@ -1,4 +1,4 @@
-#include "human.h";
+#include "human.h"
 enum Nationality { arm, rus, eng };
 enum Religion { Christianity,
     caballa,
