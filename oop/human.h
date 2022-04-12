@@ -1,4 +1,6 @@
 enum Gender { male, female };
+enum Food {apple, sweet};
+enum Drink {wother, milk};
 class Human {
 private:
     Date _birthDay;
