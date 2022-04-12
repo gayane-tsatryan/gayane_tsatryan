@@ -2,5 +2,6 @@
 #include "homosapience.h";
 
 class programmer : public Human, public Homosapience {
-private  string _compSkills;
+    private  string _compSkills;
+    public void HardWork();
 };
