@@ -1,13 +1,12 @@
 #include <iostream>
-#include <conio.h>
-#include <stdlib.h>
 using namespace std;
 class polynomial {
     int a[' '], b[' '], c[' '], i, j, m, n, x;
 
 public:
     void get_date();
-    void add();
+    void Add();
+    void SubSract();
     void display();
 };
 void polynomial::get_date()
@@ -26,8 +25,7 @@ void polynomial::get_date()
     }
 }
 
-
-void polynomial::add()
+void polynomial::Add()
 {
     if (m == n) {
         for (i = 0; i <= n; i++) {
@@ -56,6 +54,37 @@ void polynomial::add()
         }
     }
 }
+void polynomial::SubSract()
+{
+    if (m == n) {
+        for (i = 0; i <= n; i++) {
+            if (a[i] - b[i] != 0) {
+                c[i] = a[i] - b[i];
+            }
+        }
+    }
+    else if (m > n) {
+        for (i = 0; i <= m; i++) {
+            if (i <= n) {
+                c[i] = a[i] - b[i];
+            }
+            else {
+                c[i] = b[i];
+            }
+        }
+    }
+    else if (n > m) {
+        for (i = 0; i <= n; i++) {
+            if (i <= m) {
+
+                c[i] = a[i] - b[i];
+            }
+            else {
+                c[i] = a[i];
+            }
+        }
+    }
+}
 
 void polynomial::display()
 {
@@ -73,7 +102,10 @@ int main()
 {
     polynomial p;
     p.get_date();
-    p.add();
+    p.Add();
+    cout << "Result" << endl;
+    p.display();
+    p.SubSract();
     cout << "Result" << endl;
     p.display();
     return 0;
