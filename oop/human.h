@@ -3,7 +3,7 @@ enum Food {apple, sweet};
 enum Drink {wother, milk};
 class Human {
 private:
-    Date _birthDay;
+    //Date _birthDay;
     int _eyeColor;
     int _hairColor;
     Gender _gender;
