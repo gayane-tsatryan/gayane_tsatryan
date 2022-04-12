@@ -74,7 +74,7 @@ int main()
     polynomial p;
     p.get_date();
     p.add();
-    cout << "Result";
+    cout << "Result" << endl;
     p.display();
     return 0;
 }
