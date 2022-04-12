@@ -1,5 +1,5 @@
 class polynomial {
-    int a[' '], b[' '], c[' '], i, j, m, n, x;
+  public int a[' '], b[' '], c[' '], i, j, m, n, x;
 
 public:
     void get_date();
