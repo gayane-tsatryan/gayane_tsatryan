@@ -1,23 +1,57 @@
+#include "date.h"
 enum Gender { male, female };
-enum Food {apple, sweet};
-enum Drink {wother, milk};
+enum Food {fruits, sweet,vegetable};
+enum Drink {water, milk, juice};
+enum EyeColor {green, blue, black, grey, brown};
+enum HairColor {black,brown};
 class Human {
 private:
-    //Date _birthDay;
-    int _eyeColor;
-    int _hairColor;
-    Gender _gender;
+    Date _birthDay = "";
+    EyeColor _eyeColor = green;
+    HairColor _hairColor = brown;
+    Gender _gender = male;
     Human _father;
     Human _mother;
-    int _healthLevel;
-    int _mentalHealth;
+    int _healthLevel = 100;
+    int _mentalHealth = 100;
+    int _badHealth = 0;
     void Think();
-    void Digestion();
+    void Digest();
 
 public:
+    Date* getBirthDate() const;
+    void setBirthDate(Date* birthDate);
+
+    EyeColor getEyeColor() const;
+    void setEyeColor(EyeColor eyeColor);
+
+    HairColor getHairColor() const;
+    void setHairColor(HairColor hairColor);
+
+    Gender getGender() const;
+    void setGender(Gender gender);
+    
+    Human getFather() const;
+    Human getMother() const;
+    
+    int getHealthLevel() const;
+    void setHealthLevel(int healthLevel);   
+    
+    int getMentalHealth() const;
+    void setMentalHealth(int MentalHealth); 
+    
+    int getBadHealth() const;
+    void setBadHealth(int BadHealth); 
+    
     void Wolk();
-    void Breath();
+    void Bearth();
     void Eat(Food _food);
     void Drink(Drink _drink);
-    Human(Date _birthDay, int _eyeColor, int _hairColor, Gender _gender, Human _father, Human _mother);
+    Human(Date birthDay, int eyeColor, int hairColor, Gender gender, Human father, Human mother);
+    Human(Date birthDay, int eyeColor, int hairColor, Gender gender, Human father);
+    Human(Date birthDay, int eyeColor, int hairColor, Gender gender);
+    Human(const Human & human);
+    Human();
+    ~Human();
+    
 };
