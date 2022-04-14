@@ -1,7 +1,7 @@
 #include "human.h";
 #include "homosapience.h";
 
-HomoSapience::HomoSapience(string address, string name, string surname, string fatherName, string mothername, Religion religion, Nationality nationality)
+HomoSapience::HomoSapience(const Human& human, string address, string name, string surname, string fatherName, string mothername, Religion religion, Nationality nationality) : Human(human)
 {
 	_address = address;
 	_name = name;
@@ -12,7 +12,7 @@ HomoSapience::HomoSapience(string address, string name, string surname, string f
 	_nationality = nationality;
 
 }
-HomoSapience::HomoSapience(string address, string name, string surname, string mothername, Religion religion, Nationality nationality)
+HomoSapience::HomoSapience(const Human& human, string address, string name, string surname, string mothername, Religion religion, Nationality nationality) : Human(human)
 {
 	_address = address;
 	_name = name;
@@ -22,7 +22,7 @@ HomoSapience::HomoSapience(string address, string name, string surname, string m
 	_nationality = nationality;
 
 }
-HomoSapience::HomoSapience(string address, string name, string surname, string fatherName, Religion religion, Nationality nationality)
+HomoSapience::HomoSapience(const Human& human, string address, string name, string surname, string fatherName, Religion religion, Nationality nationality) : Human(human)
 {
 	_address = address;
 	_name = name;
@@ -32,7 +32,7 @@ HomoSapience::HomoSapience(string address, string name, string surname, string f
 	_nationality = nationality;
 
 }
-HomoSapience::HomoSapience(string address, string name, string surname, Religion religion, Nationality nationality)
+HomoSapience::HomoSapience(const Human& human, string address, string name, string surname, Religion religion, Nationality nationality) : Human(human)
 {
 	_address = address;
 	_name = name;
