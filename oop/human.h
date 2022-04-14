@@ -1,7 +1,7 @@
 #include "date.h"
 
 enum Gender { male, female };
-enum Food {fruits, sweet,vegetable};
+enum Food {fruits, sweat,vegetable};
 enum Drink {water, milk, juice, alcohol};
 enum EyeColor {green, blue, black, grey, brown};
 enum HairColor {black,brown};
