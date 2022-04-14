@@ -29,5 +29,5 @@ void Date::setYear(int year) {
 }
 
 string Date::getDate() const {
-  return to_string(_day) + " " + to_string(_month) + " " + to_string(_year);
+  return to_string(_day) + "/" + to_string(_month) + "/" + to_string(_year);
 }
