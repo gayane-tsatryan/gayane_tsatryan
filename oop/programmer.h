@@ -8,4 +8,6 @@ class Programmer: public Homosapience
 	public: void HardWork();
 	string getCompSkills() const;
 	void setCompSkills(string compskills);
+	virtual void Work() override;
+	virtual void hobby() override;
 };
