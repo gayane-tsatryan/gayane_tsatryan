@@ -1,6 +1,7 @@
 class polynomial {
 public:
-    int *coeff, degree;
+    int *coeff;
+    int degree = 0;
 
     int GetData();
     int Display(int *coeff, int degree);
