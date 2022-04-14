@@ -23,8 +23,8 @@ private:
     void Digest();
 
 public:
-    Date* getBirthDate() const;
-    void setBirthDate(Date* birthDate);
+    Date* getBirthDay() const;
+    void setBirthDay(Date* birthDay);
 
     EyeColor getEyeColor() const;
     void setEyeColor(EyeColor eyeColor);
