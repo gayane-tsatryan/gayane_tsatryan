@@ -15,7 +15,8 @@ int polynomial::GetData()
 }
 int polynomial::Display(int* coeff, int _degree)
 {
-    int i, j;
+    int i = 0;
+    int j = 0;
     bool _temp = false;
     for (i = _degree; i >= 0; i--) {
         if (coeff[i] != 0) {
@@ -60,7 +61,8 @@ void polynomial::Add(polynomial P1, polynomial P2)
 }
 void polynomial::Substract(polynomial P1, polynomial P2)
 {
-    int _max, i;
+    int _max = 0;
+    int i = 0;
     _max = (P1._degree > P2._degree) ? P1._degree : P2._degree;
     int* sub = new int[_max + 1];
     if (P1._degree == P2._degree) {
@@ -86,12 +88,27 @@ void polynomial::Substract(polynomial P1, polynomial P2)
 }
 void polynomial::Multiplay(polynomial P1, polynomial P2)
 {
-    int i, j, _max;
+    int i = 0;
+    int j = 0; 
+    int _max = 0;
     _max = P1._degree + P2._degree;
     int* mul = new int[_max + 1];
 
     for (i = P1._degree; i >= 0; i--)
         for (j = P2._degree; j >= 0; j--)
             mul[i + j] += P1.coeff[i] * P2.coeff[j];
+    Display(mul, _max);
+}
+void polynomial::MultByNumber(int _number, polynomial P1)
+{
+    int i = 0;
+    int j = 0; 
+    int _max = 0;
+    _max = P1._degree;
+    int* mul = new int[_max + 1];
+
+    for (i = P1._degree; i >= 0; i--){
+            mul[i] += P1.coeff[i] * _number;
+    }
     Display(mul, _max);
 }
