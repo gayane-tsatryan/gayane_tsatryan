@@ -1,19 +1,12 @@
 
 #include "human.h"
 
-enum Nationality
-{
-	arm, rus, eng
-};
-enum Religion
-{
-	Christianity,
-	caballa,
-	islam
-};
+enum Nationality { arm, rus, eng };
+enum Religion { Christianity, caballa, islam};
+
 class HomoSapience: public Human
 {
-	private:
+private:
 	string _address = "";
 	string _name = "";
 	string _surname = "";
@@ -22,7 +15,7 @@ class HomoSapience: public Human
 	Nationality _nationality = arm;
 	Religion _religion = Christianity;
 
-	public: string getAddress() const;
+public: string getAddress() const;
 	void setAddress(string address);
 
 	string getName() const;
