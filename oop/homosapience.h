@@ -47,6 +47,11 @@ class HomoSapience: public Human
 	virtual void hobby();
 	void Dance();
 	void GoToGym();
-	public: HomoSapience(string address, string name, string surname, string fatherName, string mothername, Religion religion, Nationality nationality);
-	HomoSapience();~HomoSapience();
+	public:
+	HomoSapience(string address, string name, string surname, string fatherName, string mothername, Religion religion, Nationality nationality);
+	HomoSapience(string address, string name, string surname, string fatherName, Religion religion, Nationality nationality);
+	HomoSapience(string address, string name, string surname, string mothername, Religion religion, Nationality nationality);
+	HomoSapience(string address, string name, string surname, Religion religion, Nationality nationality);
+        HomoSapience();
+	~HomoSapience();
 };
