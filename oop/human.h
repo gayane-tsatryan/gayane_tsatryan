@@ -42,10 +42,10 @@ public:
     void setHealthLevel(int healthLevel);   
     
     int getMentalHealth() const;
-    void setMentalHealth(int MentalHealth); 
+    void setMentalHealth(int mentalHealth); 
     
     int getBadHealth() const;
-    void setBadHealth(int BadHealth); 
+    void setBadHealth(int badHealth); 
     
     int getHungry() const;
     void setHungry(int hungry);
