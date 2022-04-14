@@ -1,9 +1,11 @@
 #include "date.h"
+
 enum Gender { male, female };
 enum Food {fruits, sweet,vegetable};
-enum Drink {water, milk, juice};
+enum Drink {water, milk, juice, alcohol};
 enum EyeColor {green, blue, black, grey, brown};
 enum HairColor {black,brown};
+
 class Human {
 private:
     Date _birthDay = "";
@@ -15,6 +17,8 @@ private:
     int _healthLevel = 100;
     int _mentalHealth = 100;
     int _badHealth = 0;
+    int _hungry = 0;
+    int _thirsty = 0;
     void Think();
     void Digest();
 
@@ -42,6 +46,12 @@ public:
     
     int getBadHealth() const;
     void setBadHealth(int BadHealth); 
+    
+    int getHungry() const;
+    void setHungry(int hungry);
+    
+    int getThirsty() const;
+    void setThirsty(int thirsty);
     
     void Wolk();
     void Bearth();
