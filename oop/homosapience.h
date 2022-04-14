@@ -13,13 +13,14 @@ enum Religion
 };
 class HomoSapience: public Human
 {
-	private: string _address;
-	string _name;
-	string _surname;
-	string _fatherName;
-	string _motherName;
-	Nationality _nationality;
-	Religion _religion;
+	private:
+	string _address = "";
+	string _name = "";
+	string _surname = "";
+	string _fatherName = "";
+	string _motherName = "";
+	Nationality _nationality = arm;
+	Religion _religion = Christianity;
 
 	public: string getAddress() const;
 	void setAddress(string address);
@@ -48,10 +49,11 @@ class HomoSapience: public Human
 	void Dance();
 	void GoToGym();
 	public:
-	HomoSapience(string address, string name, string surname, string fatherName, string mothername, Religion religion, Nationality nationality);
-	HomoSapience(string address, string name, string surname, string fatherName, Religion religion, Nationality nationality);
-	HomoSapience(string address, string name, string surname, string mothername, Religion religion, Nationality nationality);
-	HomoSapience(string address, string name, string surname, Religion religion, Nationality nationality);
+	HomoSapience(const Human& human,string address, string name, string surname, string fatherName, string mothername, Religion religion, Nationality nationality);
+	HomoSapience(const Human& human,string address, string name, string surname, string fatherName, Religion religion, Nationality nationality);
+	HomoSapience(const Human& human,string address, string name, string surname, string mothername, Religion religion, Nationality nationality);
+	HomoSapience(const Human& human,string address, string name, string surname, Religion religion, Nationality nationality);
+	HomoSapience(const HomoSapience&);
         HomoSapience();
 	~HomoSapience();
 };
