@@ -8,5 +8,5 @@ public:
     void Add(polynomial P1, polynomial P2);
     void Substract(polynomial P1, polynomial P2);
     void Multiplay(polynomial P1, polynomial P2);
-    void MultByNumber(int a);
+    void MultByNumber(int a, polynomial P);
 };
