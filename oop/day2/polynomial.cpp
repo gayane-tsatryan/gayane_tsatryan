@@ -1,136 +1,97 @@
-#include "plynomial.h"
-polynomial::get_date()
+#include "polynomial.h"
+
+int polynomial::GetData()
 {
-    cout << "Enter the first polynomial ";
-    cin >> n;
-    for (i = 0; i <= n; i++) {
-        cout << "Enter the coeficent exp = " << i << endl;
-        cin >> a[i];
+    int i = 0;
+    cout << "Enter Degree Of Polynomial:";
+    cin >> _degree;
+    coeff = new int[_degree + 1];
+    for (i = _degree; i >= 0; i--) {
+        cout << "Enter coefficient of x^" << i << ":";
+        cin >> coeff[i];
     }
-    cout << "Enter second polynomial" << endl;
-    cin >> m;
-    for (i = 0; i <= m; i++) {
-        cout << "Enter the coeficent exp = " << i << endl;
-        cin >> b[i];
+
+    return 0;
+}
+int polynomial::Display(int* coeff, int _degree)
+{
+    int i, j;
+    bool _temp = false;
+    for (i = _degree; i >= 0; i--) {
+        if (coeff[i] != 0) {
+            _temp = true;
+            cout << coeff[i] << "x^" << i;
+            if ((i - 1) != -1)
+                cout << "+";
+        }
     }
+    if (_temp == false) {
+        cout << "0";
+    }
+    cout << "\n";
+    return 0;
 }
 
-polynomial::Add()
+void polynomial::Add(polynomial P1, polynomial P2)
 {
-    if (m == n) {
-        for (i = 0; i <= n; i++) {
-            c[i] = a[i] + b[i];
-        }
+    int _max = 0;
+    int i = 0;
+    _max = (P1._degree > P2._degree) ? P1._degree : P2._degree;
+    int* addition = new int[_max + 1];
+    if (P1._degree == P2._degree) {
+        for (i = P1._degree; i >= 0; i--)
+            addition[i] = P1.coeff[i] + P2.coeff[i];
     }
-    else if (m > n) {
-        for (i = 0; i <= m; i++) {
-            if (i <= n) {
-                c[i] = a[i] + b[i];
-            }
-            else {
-                c[i] = b[i];
-            }
-        }
-    }
-    else if (n > m) {
-        for (i = 0; i <= n; i++) {
-            if (i <= m) {
 
-                c[i] = a[i] + b[i];
-            }
-            else {
-                c[i] = a[i];
-            }
-        }
+    if (P1._degree > P2._degree) {
+        for (i = P1._degree; i > P2._degree; i--)
+            addition[i] = P1.coeff[i];
+        for (i = P2._degree; i >= 0; i--)
+            addition[i] = P1.coeff[i] + P2.coeff[i];
     }
-}
-polynomial::Multiplay()
-{
-    if (m == n) {
-        for (i = 0; i <= n; i++) {
-            c[i] = a[i] * b[i];
-        }
-    }
-    else if (m > n) {
-        for (i = 0; i <= m; i++) {
-            if (i <= n) {
-                c[i] = a[i] * b[i];
-            }
-            else {
-                c[i] = b[i];
-            }
-        }
-    }
-    else if (n > m) {
-        for (i = 0; i <= n; i++) {
-            if (i <= m) {
 
-                c[i] = a[i] * b[i];
-            }
-            else {
-                c[i] = a[i];
-            }
-        }
+    if (P1._degree < P2._degree) {
+        for (i = P2._degree; i > P1._degree; i--)
+            addition[i] = P2.coeff[i];
+        for (i = P1._degree; i >= 0; i--)
+            addition[i] = P1.coeff[i] + P2.coeff[i];
     }
+    Display(addition, _max);
 }
-polynomial::MultiplayByNumber()
+void polynomial::Substract(polynomial P1, polynomial P2)
 {
-    int number, input;
-    cout << "Enter number for multiply: ";
-    cin >> number;
-    cout << "If multiply first polynomial input 1 else some button: " << endl;
-    cin >> input;
-    if (input == 1) {
-        for (i = 0; i <= n; i++) {
-            c[i] = number * a[i];
-        }
+    int _max, i;
+    _max = (P1._degree > P2._degree) ? P1._degree : P2._degree;
+    int* sub = new int[_max + 1];
+    if (P1._degree == P2._degree) {
+        for (i = P1._degree; i >= 0; i--)
+            sub[i] = P1.coeff[i] - P2.coeff[i];
     }
-    else {
-        for (i = 0; i <= m; i++) {
-            c[i] = number * b[i];
-        }
-    }
-}
-polynomial::SubSract()
-{
-    if (m == n) {
-        for (i = 0; i <= n; i++) {
-            if (a[i] - b[i] != 0) {
-                c[i] = a[i] - b[i];
-            }
-        }
-    }
-    else if (m > n) {
-        for (i = 0; i <= m; i++) {
-            if (i <= n) {
-                c[i] = a[i] - b[i];
-            }
-            else {
-                c[i] = b[i];
-            }
-        }
-    }
-    else if (n > m) {
-        for (i = 0; i <= n; i++) {
-            if (i <= m) {
 
-                c[i] = a[i] - b[i];
-            }
-            else {
-                c[i] = a[i];
-            }
-        }
+    if (P1._degree > P2._degree) {
+        for (i = P1._degree; i > P2._degree; i--)
+            sub[i] = P1.coeff[i];
+        for (i = P2._degree; i >= 0; i--)
+            sub[i] = P1.coeff[i] - P2.coeff[i];
     }
+
+    if (P1._degree < P2._degree) {
+        for (i = P2._degree; i > P1._degree; i--)
+            sub[i] = -P2.coeff[i];
+        for (i = P1._degree; i >= 0; i--)
+            sub[i] = P1.coeff[i] - P2.coeff[i];
+    }
+
+    Display(sub, _max);
 }
-polynomial::display()
+void polynomial::Multiplay(polynomial P1, polynomial P2)
 {
-    x = i - 1;
-    for (j = i - 1; j >= 0; j--) {
-        if (j == 0) {
-            cout << c[j];
-            break;
-        }
-        cout << c[j] << "x^" << x << "+";
-        x--;
-    }
+    int i, j, _max;
+    _max = P1._degree + P2._degree;
+    int* mul = new int[_max + 1];
+
+    for (i = P1._degree; i >= 0; i--)
+        for (j = P2._degree; j >= 0; j--)
+            mul[i + j] += P1.coeff[i] * P2.coeff[j];
+    Display(mul, _max);
 }
