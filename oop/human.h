@@ -48,6 +48,7 @@ public:
     void Eat(Food _food);
     void Drink(Drink _drink);
     Human(Date birthDay, int eyeColor, int hairColor, Gender gender, Human father, Human mother);
+    Human(Date birthDay, int eyeColor, int hairColor, Gender gender, Human mother);
     Human(Date birthDay, int eyeColor, int hairColor, Gender gender, Human father);
     Human(Date birthDay, int eyeColor, int hairColor, Gender gender);
     Human(const Human & human);
