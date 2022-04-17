@@ -1,4 +1,59 @@
-#include "polynomial.h"
+#include <vector>
+#include <string>
+#include <iostream>
+using namespace std;
+
+class polynomial
+{
+public:
+    char var = 'x^';
+    const _degree;
+    polynomial();
+    polynomial(const poly&, const char variable);
+    polynomial(const poly&);
+    polynomial(const vector<int>&);
+    polynomial &operator=(const poly&);
+    void add(const polynomial&);
+    polynomial plus(const polynomial&) const;
+    polynomial operator+(const polynomial&) const;
+    polynomial &operator+=(const polynomial&);
+    void subtract(const polynomial&);
+    polynomial minus(const polynomial&) const;
+    polynomial operator-(const polynomial&) const;
+    polynomial &operator-=(const polynomial&);
+    void multiply(const polynomial&);
+    polynomial times(const polynomial&) const;
+    polynomial operator*(const polynomial&) const;
+    polynomial &operator*=(const polynomial&);
+    bool operator==(const polynomial&) const;
+    void print(ostream&) const;
+    void print(ostream&, const char variable) const;
+
+private:
+    vector<int> coeff;
+};
+
+polynomial add(const polynomial&, const polynomial&);
+polynomial subtract(const polynomial&, const polynomial&);
+polynomial multiply(const polynomial&, const polynomial&);
+
+std::ostream &operator<<(ostream&, const polynomial&);
+std::istream &operator>>(istream&, polynomial&);
+
+
+
+
+
+
+
+
+
+
+/*#include "polynomial.h"
+#include <vector>
+#include <string>
+#include <sstream>
+#include <iostream>
 
 int polynomial::GetData()
 {
@@ -112,3 +167,4 @@ void polynomial::MultByNumber(int _number, polynomial P1)
     }
     Display(mul, _max);
 }
+}*/
