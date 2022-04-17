@@ -1,7 +1,7 @@
 #include "human.h";
-#include "homosapience.h"
+#include "employee.h"
 
-class Programmer: public Homosapience
+class Programmer: public employee
 {
 	private: 
 		string _compSkills = "";
@@ -14,7 +14,7 @@ class Programmer: public Homosapience
 		void setSalary(unsigned long salary);
 		virtual void Work() override;
 		virtual void hobby() override;
-		Programmer(const HomoSapience& homoSapience, string compSkills, unsigned int salary);
+		Programmer(const employee& employee, string compSkills, unsigned int salary);
                 Programmer(const Programmer&);
                 ~Programmer();
 };
