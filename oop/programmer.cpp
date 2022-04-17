@@ -1,6 +1,5 @@
-#include "human.h";
-#include "homosapience.h";
 #include "employee.h"
+
 Programmer::Programmer(const employee &employee, string compSkills, unsigned int salary): employee(employee)
 {
 	_compSkills = compSkills;
