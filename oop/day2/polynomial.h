@@ -9,10 +9,10 @@ public:
     char var = 'x^';
     const _degree;
     polynomial();
-    polynomial(const poly&, const char variable);
-    polynomial(const poly&);
+    polynomial(const string poly&, const char variable);
+    polynomial(const string poly&);
     polynomial(const vector<int>&);
-    polynomial &operator=(const poly&);
+    polynomial &operator=(const string poly&);
     void add(const polynomial&);
     polynomial plus(const polynomial&) const;
     polynomial operator+(const polynomial&) const;
