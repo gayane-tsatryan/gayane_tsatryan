@@ -1,7 +1,7 @@
 #include "human.h";
 #include "homosapience.h";
-
-Programmer::Programmer(const HomoSapience &homoSapience, string compSkills, unsigned int salary): HomoSapience(homoSapience)
+#include "employee.h"
+Programmer::Programmer(const employee &employee, string compSkills, unsigned int salary): employee(employee)
 {
 	_compSkills = compSkills;
 	_salary = salary;
