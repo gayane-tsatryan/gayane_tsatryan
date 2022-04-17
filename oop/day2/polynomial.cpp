@@ -184,6 +184,15 @@ polynomial polynomial::operator*=(polynomial P2)
     *this = *this * P2;
     return *this;
 }
+bool polynomial::operator==(const polynomial& poly) const
+{
+    if (this->_degree != poly._degree)
+        return false;
+    for (int i = 0; i <= this->_degree; ++i)
+        if (coeff[i] != poly[i])
+            return false;
+    return true;
+}
 
 std::istream& operator>>(std::istream& in, polynomial& poly)
 {
