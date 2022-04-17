@@ -2,9 +2,9 @@ class polynomial {
 public:
     int *coeff;
     int _degree = 0;
-    Polynomial(int*, int);
+    polynomial(int*, int);
     polynomial(); 
-    ~ polynomial();
+    ~polynomial();
     int GetData();
     int Display(int *coeff, int _degree);
     void Add(polynomial P1, polynomial P2);
