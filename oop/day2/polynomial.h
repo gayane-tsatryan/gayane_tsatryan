@@ -1,6 +1,6 @@
 class polynomial {
 public:
-    int *coeff =NULL;
+    int *coeff = NULL;
     int _degree = 0;
     polynomial(int*, int);
     polynomial(); 
