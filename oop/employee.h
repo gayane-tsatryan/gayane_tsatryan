@@ -12,8 +12,8 @@ private:
 
 public:
     employee(const homosapience& homosapience, string idNum, string depart, string pos, int yrsWrkd);
-    employee(const homosapience& homosapience, string idNum)
-        employee();
+    employee(const homosapience& homosapience, string idNum);
+    employee();
     ~employee();
 
     void setIdnumber(string idNum);
