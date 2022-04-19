@@ -1,4 +1,4 @@
-#include "employee.h"
+#include "farmer.h"
 public:
 FarmerType farmer::getFarmerType()
 {
