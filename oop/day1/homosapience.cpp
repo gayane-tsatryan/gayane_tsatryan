@@ -11,12 +11,12 @@ HomoSapience::HomoSapience(const Human& human, string address, string name, stri
 	_nationality = nationality;
 
 }
-HomoSapience::HomoSapience(const Human& human, string address, string name, string surname, string mothername, Religion religion, Nationality nationality) : Human(human)
+HomoSapience::HomoSapience(const Human& human, string address, string name, string surname, string fatherName, Religion religion, Nationality nationality) : Human(human)
 {
 	_address = address;
 	_name = name;
 	_surname = surame;
-	_mothername = motherName;
+	_fathername = fatherName;
 	_religion = religion;
 	_nationality = nationality;
 
