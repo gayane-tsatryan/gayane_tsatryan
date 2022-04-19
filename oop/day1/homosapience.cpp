@@ -1,4 +1,3 @@
-#include "human.h";
 #include "homosapience.h";
 
 HomoSapience::HomoSapience(const Human& human, string address, string name, string surname, string fatherName, string mothername, Religion religion, Nationality nationality) : Human(human)
