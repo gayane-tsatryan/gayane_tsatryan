@@ -59,7 +59,11 @@ void LinkedList<T>::removeAt(int index)
     }
     _count--;
 }
-
+template <class T>
+void LinkedList<T> ::removeLast()
+{
+    removeAt(GetCount() - 1);
+}
 template <class T>
 void LinkedList<T>::clear()
 {
