@@ -10,7 +10,7 @@ class Queue {
 public:
     void push(T value)
     {
-        _items.AddAt(0);
+        _items.AddAt(value,0);
     }
 
     T pop()
