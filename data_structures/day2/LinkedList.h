@@ -27,11 +27,9 @@ public:
     void AddAt(T, int);
     void removeAt(int);
     void removeLast();
-
+    void removeFirst();
     T getFirstElement();
     T getLastElement();
-    void removeFirst();
-
     void clear();
     T getElement(const int) const;
     int getCount() const;
