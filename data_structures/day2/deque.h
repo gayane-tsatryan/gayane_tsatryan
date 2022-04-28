@@ -4,60 +4,60 @@
 #include "LinkedList.h"
 
 template <typename T>
-class Deque<T> {
-    LinkedList<T>;
+class Deque {
+    LinkedList<T> _items;
 
 public:
     void EnqueueFirst(T value)
     {
-        _items.AddFirst(value);
+        _items.AddAt(value, 0);
     }
 
     void EnqueueLast(T value)
     {
-        _items.AddLast(value);
+        _items.AddAt(value, _items.getCount() - 1);
     }
 
     T DequeueFirst()
     {
-        if (_items.Count == 0) {
+        if (_items.getCount() == 0) {
             throw new InvalidOperationException("empty");
         }
 
-        T temp = _items.First.Value;
-        _items.RemoveFirst();
+        T temp = _items.getFirstElement();
+        _items.removeFirst();
 
         return temp;
     }
 
     T DequeueLast()
     {
-        if (_items.Count == 0) {
+        if (_items.getCount() == 0) {
             throw new InvalidOperationException("empty"); //!!!!!
         }
 
-        T temp = _items.Last.Value;
-        _items.RemoveLast();
+        T temp = _items.getLastElement();
+        _items.removeLast();
         return temp;
     }
 
     T PeekFirst()
     {
-        if (_items.Count == 0) {
+        if (_items.getCount() == 0) {
             throw new InvalidOperationException("empty");
         }
 
-        return _items.First.Value;
+        return _items.getFirstElement();
     }
 
     T PeekLast()
     {
-        if (_items.Count == 0) {
+        if (_items.getCount() == 0) {
             throw new InvalidOperationException("empty");
         }
-        return _items.Last.Value;
+        return _items.getLastElement();
     }
 
-    int _Count = _items.Count;
+    int _Count = _items.getCount();
 }
 #endif
