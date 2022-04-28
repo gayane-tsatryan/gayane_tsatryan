@@ -8,98 +8,76 @@ int main()
     int arr[10000];
     int copy[10000];
     for (int i = 0; i < 10000; i++) {
-        int random = rand() % 10000 + 1;
-        arr[i] = random;
+        int _random = rand() % 10000 + 1;
+        arr[i] = _random;
         copy[i] = arr[i];
     }
-    clock_t start3 = clock();
-
-    int key, j;
+    
+    clock_t _start = clock();
+    int _key;
+    int j = 0;
     for (int i = 1; i < 10000; i++) {
-        key = arr[i];
+        _key = arr[i];
 
-        for (j = i - 1; j >= 0 && arr[j] > key; j--) {
+        for (j = i - 1; j >= 0 && arr[j] > _key; j--) {
             arr[j + 1] = arr[j];
         }
-        arr[j + 1] = key;
+        arr[j + 1] = _key;
     }
-    for (int i = 0; i < 10000; i++) {
-        cout << arr[i] << endl;
-    }
-
-    clock_t end3 = clock();
-    double finish3 = double(end3 - start3) / CLOCKS_PER_SEC;
-    ///////////
-    for (int i = 0; i < 10000; i++) {
-        arr[i] = copy[i];
-    }
-
-    /////bubble/////
-    clock_t start = clock();
-    for (int i = 0; i < 10000; i++) {
-        for (int j = 0; j < 10000 - 1; j++) {
-
-            if (arr[j] > arr[j + 1]) {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-    clock_t end = clock();
-    double finish = double(end - start) / CLOCKS_PER_SEC;
+    clock_t _end = clock();
+    double _finish = double(_end - _start) / CLOCKS_PER_SEC;
 
     for (int i = 0; i < 10000; i++) {
         arr[i] = copy[i];
     }
-
-    ///////// our insertion/////////////
-    clock_t start2 = clock();
+   
+    clock_t _start1 = clock();
     for (int i = 0; i < 10000; i++) {
-        for (int j = 0; j < i; j++) {
-
-            if (arr[j] > arr[i]) {
-                int temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
-            }
-        }
-    }
-    clock_t end2 = clock();
-    ////////////////end insertion/////////////
-    double finish2 = double(end2 - start2) / CLOCKS_PER_SEC;
-
-    clock_t start1 = clock();
-
-    bool swapped = false;
-    for (int i = 0; i < 10000; i++) {
-        swapped = false;
         for (int j = 0; j < 10000 - 1; j++) {
 
             if (arr[j] > arr[j + 1]) {
-                int temp = arr[j];
+                int _temp = arr[j];
                 arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                swapped = true;
+                arr[j + 1] = _temp;
             }
         }
-        if (swapped == false) {
+    }
+    clock_t _end1 = clock();
+    double _finish1 = double(_end1 - _start1) / CLOCKS_PER_SEC;
+    
+    for (int i = 0; i < 10000; i++) {
+        arr[i] = copy[i];
+    }
+    
+    clock_t _start2 = clock();
+    bool _swapped = false;
+    for (int i = 0; i < 10000; i++) {
+        _swapped = false;
+        for (int j = 0; j < 10000 - 1; j++) {
+
+            if (arr[j] > arr[j + 1]) {
+                int _temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = _temp;
+                _swapped = true;
+            }
+        }
+        if (_swapped == false) {
             break;
         }
     }
+    clock_t _end2 = clock();
+    double _finish2 = double(_end2 - _start2) / CLOCKS_PER_SEC;
 
-    clock_t end1 = clock();
-
-    double finish1 = double(end1 - start1) / CLOCKS_PER_SEC;
-
-    for (int i = 0; i < 10000; i++) {
-        arr[i] = copy[i];
+   /*  for (int i = 0; i < 10000; i++)
+    {
+        cout << arr[i] << endl;
     }
+    */
 
-    cout << "\nBubble sorting : " << finish << endl;
-    cout << "\nBubble sorting swap: " << finish1 << endl;
-    cout << "\nInsertion1 sorting : " << finish2 << endl;
-    cout << "\nInsertion sorting : " << finish3 << endl;
+    cout << "\nBubble sorting : " << _finish1 << endl;
+    cout << "\nBubble sorting swap: " << _finish2 << endl;
+    cout << "\nInsertion sorting : " << _finish << endl;
 
     return 0;
 }
