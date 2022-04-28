@@ -23,7 +23,7 @@ Stack<T>::Stack() = default;
 template <typename T>
 T Stack<T>::pop()
 {
-    T top = peek();
+    T top = _list.getLastElement();
     _list.RemoveLast();
     return top;
 }
@@ -32,7 +32,7 @@ template <typename T>
 T Stack<T>::peek() const
 {
 
-    return _list.getElement(_list.GetCount() - 1);
+    return _list.getLastElement();
 }
 
 template <typename T>
