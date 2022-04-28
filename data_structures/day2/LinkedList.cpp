@@ -3,22 +3,39 @@
 using namespace std;
 
 template <class T>
-int LinkedList<T>::GetCount() const
+int LinkedList<T>::getCount() const
 {
     return _count;
 }
+
+template <class T>
+T LinkedList<T>::getFirstElement()
+{
+    Node<T>* instance = _head;
+    return _head->_value;
+}
+
+template <class T>
+T LinkedList<T>::getLastElement()
+{
+    Node<T>* instance = _head;
+    for (int i = 0; i < getCount() - 2; i++) {
+        instance = instance->_next;
+    }
+    return instance->_next->_value;
+}
+
 template <class T>
 void LinkedList<T>::Add(T value)
 {
+    Node<T>* _node = new Node<T>(value);
     if (_head == NULL) {
-        _head = new Node<T>(value);
+        _head = _node;
+        _tail = _node;
     }
     else {
-        Node<T>* instance = _head;
-        while (instance->_next != nullptr) {
-            instance = instance->_next;
-        }
-        instance->_next = new Node<T>(value);
+        _tail->_next = _node;
+        _tail = _node;
     }
     _count++;
 }
@@ -60,9 +77,14 @@ void LinkedList<T>::removeAt(int index)
     _count--;
 }
 template <class T>
-void LinkedList<T> ::removeLast()
+void LinkedList<T>::removeFirst()
 {
-    removeAt(GetCount() - 1);
+    removeAt(0);
+}
+template <class T>
+void LinkedList<T>::removeLast()
+{
+    removeAt(getCount() - 1);
 }
 template <class T>
 void LinkedList<T>::clear()
