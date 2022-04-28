@@ -15,8 +15,6 @@ int main()
         int _value = rand() % 10 + 1;
         list.Add(_value);
     }
-
-    list.AddAt(4, 2);
     cout << list;
     list.Add(12);
     list.removeAt(4);
