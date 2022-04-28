@@ -8,7 +8,7 @@ template <class T>
 class Node {
 public:
     T _value;
-    Node<T>* _next;
+    Node<T>* _next = nullptr;
     Node<T>(T value, Node<T>* next = nullptr)
     {
         _value = value;
@@ -27,9 +27,14 @@ public:
     void AddAt(T, int);
     void removeAt(int);
     void removeLast();
+
+    T getFirstElement();
+    T getLastElement();
+    void removeFirst();
+
     void clear();
     T getElement(const int) const;
-    int GetCount() const;
+    int getCount() const;
 
     template <class Type>
     friend ostream& operator<<(ostream& out, const LinkedList<Type>&);
