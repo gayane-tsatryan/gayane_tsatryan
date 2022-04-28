@@ -9,14 +9,14 @@ int LinkedList<T>::getCount() const
 }
 
 template <class T>
-T LinkedList<T>::getFirstElement()
+T LinkedList<T>::getFirstElement() const
 {
     Node<T>* instance = _head;
     return _head->_value;
 }
 
 template <class T>
-T LinkedList<T>::getLastElement()
+T LinkedList<T>::getLastElement() const
 {
     Node<T>* instance = _head;
     for (int i = 0; i < getCount() - 2; i++) {
