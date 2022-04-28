@@ -20,7 +20,7 @@ public:
         }
 
         T last = _items.getLastElement();
-        _items.RemoveLast();
+        _items.removeLast();
         return last;
     }
 
