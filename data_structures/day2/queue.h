@@ -4,46 +4,42 @@
 #include "LinkedList.h"
 
 template <typename T>
-class Queue<T> {
+class Queue {
     LinkedList<T> _items = new LinkedList<T>();
 
 public:
     void push(T value)
     {
-        _items.AddFirst(value);
+        _items.AddAt(0);
     }
 
     T pop()
     {
-        if (_items.Count == 0) {
+        if (_items.getCount() == 0) {
             throw new InvalidOperationException("empty");
         }
 
-        T last = _items.Last.Value;
+        T last = _items.getLastElement();
         _items.RemoveLast();
         return last;
     }
 
     T Peek()
     {
-        if (_items.Count == 0) {
+        if (_items.getCount() == 0) {
             throw new InvalidOperationException("empty");
         }
 
-        return _items.Last.Value;
+        return _items.getLastElement();
     }
 
-    int Count = _items.Count;
-}
+    int Count = _items.getCount();
 
-Queue()= default;
-~Queue();
-}
-;
+    Queue() = default;
+    ~Queue()
+    {
+        _list.clear();
+    }
+};
 
-template <typename T>
-Queue<T>::~Queue()
-{
-    _list.clear();
-}
 #endif
