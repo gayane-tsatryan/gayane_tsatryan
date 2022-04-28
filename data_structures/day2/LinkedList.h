@@ -28,11 +28,11 @@ public:
     void removeAt(int);
     void removeLast();
     void removeFirst();
-    T getFirstElement();
-    T getLastElement();
-    void clear();
+    T getFirstElement() const;
+    T getLastElement() const;
     T getElement(const int) const;
     int getCount() const;
+    void clear();
 
     template <class Type>
     friend ostream& operator<<(ostream& out, const LinkedList<Type>&);
