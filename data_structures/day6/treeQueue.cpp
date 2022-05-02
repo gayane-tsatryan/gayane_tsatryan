@@ -126,18 +126,18 @@ void print(Tree* root)
             q.push(tree->_right);
     }
 }
-Tree* insert(Tree* node, int data)
+Tree* insert(Tree* root, int data)
 {
-    if (node == NULL)
+    if (root == NULL)
         return new Tree(data);
     else {
-        if (data <= node->_data) {
-            node->_left = insert(node->_left, data);
+        if (data <= root->_data) {
+            root->_left = insert(root->_left, data);
         }
         else {
-            node->_right = insert(node->_right, data);
+            root->_right = insert(root->_right, data);
         }
-        return node;
+        return root;
     }
 }
 
