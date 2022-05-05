@@ -178,13 +178,6 @@ bool isBinaryTree(int** arr, int size, vector<int>& matrixIndexes)
     if (temp2 != 1) {
         row = false;
     }
-    if (row == false) {
-        cout << "It isn't a binary tree! " << endl;
-    }
-    else {
-        cout << "It is a binary tree!" << endl;
-    }
-
     return row;
 }
 int getRoot(int** arr, int size, vector<int>& matrixIndexes)
