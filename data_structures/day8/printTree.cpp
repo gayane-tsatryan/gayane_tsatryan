@@ -30,9 +30,6 @@ public:
 };
 int BinaryTreeNode::_level = 0;
 class BinaryTree {
-private:
-    int _count;
-
 public:
     BinaryTreeNode* _head;
 
@@ -59,7 +56,6 @@ public:
         else {
             AddTo(_head, value);
         }
-        _count++;
     }
 
 private:
