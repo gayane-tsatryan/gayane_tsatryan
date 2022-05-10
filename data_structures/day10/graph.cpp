@@ -20,7 +20,7 @@ public:
 
     bool isRange(int value)
     {
-        return (value < _verticesNumber && value > 0);
+        return (value < _verticesNumber && value >= 0);
     }
     
     void addNode()
