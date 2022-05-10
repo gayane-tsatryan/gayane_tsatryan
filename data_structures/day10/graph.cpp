@@ -6,8 +6,8 @@ using namespace std;
 class Graph {
 public:
     int _verticesNumber;
-
     LinkedList<int>* _array;
+    
     Graph(int verticenum)
     {
         _verticesNumber = verticenum;
@@ -64,7 +64,6 @@ public:
 
     bool isEdge(int a, int b)
     {
-
         for (int i = 0; i < _verticesNumber; i++) {
             Node<int>* temp = _array[a]._head;
 
@@ -77,6 +76,7 @@ public:
             return false;
         }
     }
+    
     void addEdge(int value, int v)
     {
         if (!isEdge(value, v)) {
@@ -84,6 +84,7 @@ public:
             _array[v].Add(value);
         }
     }
+    
     void removeEdge(int value, int v)
     {
         if (isEdge(value, v)) {
@@ -91,6 +92,7 @@ public:
             _array[v].removeAt(value);
         }
     }
+    
     void findNeighbours(int value)
     {
         Node<int>* temp = _array[value]._head;
@@ -100,6 +102,7 @@ public:
             temp = temp->_next;
         }
     }
+    
     void Display()
     {
         for (int i = 0; i < _verticesNumber; i++) {
@@ -118,12 +121,9 @@ public:
 int main()
 {
     Graph* graph = new Graph(4);
-
     graph->addEdge(2, 3);
     graph->addEdge(0, 2);
-
     graph->addEdge(0, 1);
-
     graph->removeEdge(2, 3);
     graph->addEdge(3, 2);
     graph->Display();
