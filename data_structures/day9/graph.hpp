@@ -73,12 +73,8 @@ void Graph::addEdge(int a, int b)
         cout << "The edge is already exists " << endl;
     }
     else {
-        for (int i = 0; i < _size; i++) {
-            for (int j = 0; j < _size; j++) {
                 matrix[a][b] = 1;
                 matrix[b][a] = 1;
-            }
-        }
     }
 }
 
