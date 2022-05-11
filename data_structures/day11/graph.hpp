@@ -158,7 +158,7 @@ void Graph::removeNode(int index)
 }
 void Graph::printPath(int* dist)
 {
-    cout << "Vertex               stance " << endl;
+    cout << "Vertex               Distance " << endl;
     cout << "===========================" << endl;
     for (int i = 0; i < _size; i++)
         cout << i << "     " << dist[i] << endl;
@@ -170,22 +170,22 @@ void Graph::dijkstra(int** graph, int node)
 
     bool* isvisited = new bool[_size];
 
-    for (int i = 0; i < _size; i++)
-        distance[i] = INT8_MAX, isvisited[i] = false;
-
+    for (int i = 0; i < _size; i++) {
+        distance[i] = INT8_MAX;
+        isvisited[i] = false;
+    }
     distance[node] = 0;
 
     for (int i = 0; i < _size - 1; i++) {
-
         int u = findMinDist(distance, isvisited);
 
         isvisited[u] = true;
 
-        for (int j = 0; j < _size; j++)
-
-            if (!isvisited[j] && distance[u] != INT8_MAX && distance[u] + graph[u][j] < distance[j])
-
-                distance[j] = distance[u] + graph[u][j];
+        for (int j = 0; j < _size; j++) {
+            if (!isvisited[j] && isEdgeExists(i, j) && distance[i] != INT8_MAX && distance[i] + graph[i][j] < distance[j]) {
+                distance[j] = distance[i] + graph[u][j];
+            }
+        }
     }
     printPath(distance);
 }
