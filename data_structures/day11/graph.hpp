@@ -98,7 +98,7 @@ void Graph::nodeNeighbours(int node)
 {
     for (int i = 0; i < _size; i++) {
         if (matrix[node][i] != 127) {
-            cout << matrix[node][i] << " ";
+            cout << i << " ";
         }
     }
 }
