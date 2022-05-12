@@ -206,7 +206,7 @@ int main()
     instance->Add(4, "g");
 
     for (var item : instance) {
-        cout << item.Value;
+        cout << item._value;
     }
     return 0;
 }
