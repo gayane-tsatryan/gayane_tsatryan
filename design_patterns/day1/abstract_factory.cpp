@@ -2,15 +2,19 @@
 using namespace std;
 
 class AbstractWater {
+public:
+    AbstractWater()
+    {
+    }
 };
 
-class CocaColaWater : AbstractWater {
+class CocaColaWater : public AbstractWater {
 public:
     CocaColaWater()
     {
     }
 };
-class PepsiWater : AbstractWater {
+class PepsiWater : public AbstractWater {
 public:
     PepsiWater()
     {
@@ -19,18 +23,18 @@ public:
 
 class AbstractBottle {
 public:
-    virtual void Interact(AbstractWater& water) const = 0;
+    virtual void Interact(const AbstractWater& water) const = 0;
 };
-class CocaColaBottle : AbstractBottle {
+class CocaColaBottle : public AbstractBottle {
 public:
-    void Interact(AbstractWater& water) const override
+    void Interact(const AbstractWater& water) const override
     {
         cout << " interacts with " << &water;
     }
 };
-class PepsiBottle : AbstractBottle {
+class PepsiBottle : public AbstractBottle {
 public:
-    void Interact(AbstractWater& water) const override
+    void Interact(const AbstractWater& water) const override
     {
         cout << " interacts with " << &water;
     }
@@ -41,7 +45,7 @@ public:
     virtual AbstractBottle* CreateBottle() const = 0;
 };
 
-class CocaColaFactory : AbstractFactory {
+class CocaColaFactory : public AbstractFactory {
 public:
     AbstractWater* CreateWater() const override
     {
@@ -53,7 +57,7 @@ public:
         return new CocaColaBottle();
     }
 };
-class PepsiFactory : AbstractFactory {
+class PepsiFactory : public AbstractFactory {
 public:
     AbstractWater* CreateWater() const override
     {
@@ -67,11 +71,11 @@ public:
 };
 class Client {
 private:
-    AbstractWater* water;
-    AbstractBottle* bottle;
+    AbstractWater* water = nullptr;
+    AbstractBottle* bottle = nullptr;
 
 public:
-    Client(AbstractFactory& factory)
+    Client(const AbstractFactory& factory)
     {
 
         water = factory.CreateWater();
@@ -80,17 +84,17 @@ public:
 
     void Run()
     {
-
         bottle->Interact(*water);
     }
-    int main()
-    {
-        Client* client;
+};
+int main()
+{
+    Client* client;
 
-        client = new Client(new CocaColaFactory());
-        client->Run();
+    client = new Client(CocaColaFactory());
+    client->Run();
 
-        client = new Client(new PepsiFactory());
-        client->Run();
-        return 0;
-    }
+    client = new Client(PepsiFactory());
+    client->Run();
+    return 0;
+}
