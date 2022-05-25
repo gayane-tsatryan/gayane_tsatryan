@@ -8,18 +8,16 @@ class Singleton {
     }
 
 public:
-    static Singleton* Instance()
+    static Singleton* getInstance()
     {
         if (uniqueInstance == NULL)
             uniqueInstance = new Singleton();
 
         return uniqueInstance;
     }
-
-public:
-    void SingletonOperation()
+    void SingletonOperation(string data)
     {
-        singletonData = "SingletonData";
+        singletonData = data;
     }
 
     string GetSingletonData()
@@ -27,12 +25,12 @@ public:
         return singletonData;
     }
 };
-
+Singleton* Singleton::uniqueInstance = nullptr;
 int main()
 {
-    Singleton* instance1;
-    instance1->Instance();
-    instance1->SingletonOperation();
+    Singleton* instance1 = Singleton::getInstance();
+    // instance1=Singleton.Instance();
+    instance1->SingletonOperation("Data");
     string singletonData = instance1->GetSingletonData();
     cout << singletonData;
     return 0;
