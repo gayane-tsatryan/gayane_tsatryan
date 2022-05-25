@@ -12,7 +12,7 @@ public:
     virtual void Request() = 0;
 };
 
-class Adapter : Target {
+class Adapter : public Target {
     Adaptee* adaptee = new Adaptee();
 
 public:
