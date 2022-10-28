@@ -10,7 +10,6 @@ public class Homework_1 {
         int e = -2147483648;
         int f = +2147483647;
 
-
         long g = -9223372036854775808l;
         long h = +9223372036854775807L;
 
@@ -25,14 +24,12 @@ public class Homework_1 {
 
         boolean m = true;
         boolean n = false;
-
-     
+   
         char o = 'a';
         char p = 'A';
         char q = 0x0048;    
         char r = '\u0063';
-
-
+        
         System.out.println(a);
         System.out.println(b);
         System.out.println(c);
